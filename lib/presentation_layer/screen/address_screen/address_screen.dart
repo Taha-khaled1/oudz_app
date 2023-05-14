@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 import 'package:oudz_app/application_layer/ShardFunction/valid.dart';
 import 'package:oudz_app/presentation_layer/Infowidget/ui_components/info_widget.dart';
 import 'package:oudz_app/presentation_layer/components/appbar1.dart';
+import 'package:oudz_app/presentation_layer/components/custombutten.dart';
 import 'package:oudz_app/presentation_layer/components/customtextfild.dart';
 import 'package:oudz_app/presentation_layer/components/navbar.dart';
 import 'package:oudz_app/presentation_layer/resources/color_manager.dart';
@@ -19,33 +20,31 @@ class AddressScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     AddressController controller = Get.put(AddressController());
     return Scaffold(
+      bottomNavigationBar: const Navb(),
       backgroundColor: ColorManager.background,
-      // appBar: appbar(),
-      // bottomNavigationBar: BottomNavAuth(
-      //   press: () {
-      //     controller.addadress(context);
-
-      //     //  Get.toNamed(Routes.shippingInfoRoute,arguments: {'cart':true});
-      //   },
-      //   text: 'حفظ',
-      // ),
-      body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 10),
-        child: ListView(
-          children: [
-            Align(
-              alignment: Alignment.topRight,
-              child: Text(
-                'عنوان جديد',
-                style: MangeStyles().getBoldStyle(
-                  color: ColorManager.kPrimary,
-                  fontSize: FontSize.s25,
-                ),
+      appBar: appbarscreen('اضافة عنوان'),
+      body: InfoWidget(
+        builder: (context, deviceInfo) {
+          return Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 10),
+            child: Center(
+              child: ListView(
+                children: [
+                  const SizedBox(height: 15),
+                  AllFieldAddress(controller: controller),
+                  const SizedBox(height: 15),
+                  CustomButton(
+                    width: deviceInfo.localWidth * 0.8,
+                    haigh: 60,
+                    color: ColorManager.kPrimary,
+                    text: 'حفظ العنوان',
+                    press: () {},
+                  ),
+                ],
               ),
             ),
-            AllFieldAddress(controller: controller)
-          ],
-        ),
+          );
+        },
       ),
     );
   }
@@ -75,7 +74,7 @@ class AllFieldAddress extends StatelessWidget {
                   onsaved: (p0) {
                     return controller.country = p0.toString();
                   },
-                  titel: 'اكتب اسم بلدك',
+                  titel: 'اسمك كاملا',
                   width: deviceInfo.localWidth * 0.05,
                   height: 60,
                 ),
@@ -87,7 +86,7 @@ class AllFieldAddress extends StatelessWidget {
                   onsaved: (p0) {
                     return controller.city = p0.toString();
                   },
-                  titel: 'المدينه',
+                  titel: 'الاماره',
                   width: deviceInfo.localWidth * 0.05,
                   height: 60,
                 ),
@@ -99,7 +98,31 @@ class AllFieldAddress extends StatelessWidget {
                   onsaved: (p0) {
                     return controller.post = p0.toString();
                   },
-                  titel: 'رمزك البريدي',
+                  titel: 'المنطقه',
+                  width: deviceInfo.localWidth * 0.05,
+                  height: 60,
+                ),
+                const SizedBox(height: 15),
+                CustomTextfeild(
+                  valid: (p0) {
+                    return validInput(p0.toString(), 1, 100, 'phone');
+                  },
+                  onsaved: (p0) {
+                    return controller.phone = p0.toString();
+                  },
+                  titel: 'المنزل/الشقه',
+                  width: deviceInfo.localWidth * 0.05,
+                  height: 60,
+                ),
+                const SizedBox(height: 15),
+                CustomTextfeild(
+                  valid: (p0) {
+                    return validInput(p0.toString(), 1, 100, 'phone');
+                  },
+                  onsaved: (p0) {
+                    return controller.phone = p0.toString();
+                  },
+                  titel: 'البريد الاكتروني',
                   width: deviceInfo.localWidth * 0.05,
                   height: 60,
                 ),

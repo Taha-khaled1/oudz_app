@@ -90,17 +90,16 @@ class CustomTextfeild extends StatelessWidget {
                   ? OutlineInputBorder(
                       borderRadius: BorderRadius.circular(17),
                       borderSide: BorderSide(
-                        width: 1.2,
-                        style: isBoarder ?? BorderStyle.solid,
-                        color: ColorManager.grey2,
-                      ), //<-- SEE HERE
+                          width: 1.2,
+                          style: isBoarder ?? BorderStyle.solid,
+                          color: Colors.black.withOpacity(0.4)), //<-- SEE HERE
                     )
                   : OutlineInputBorder(
                       borderRadius: BorderRadius.circular(17),
                       borderSide: BorderSide(
                         width: 0,
                         // style: BorderStyle.none,
-                        color: ColorManager.grey2,
+                        color: Colors.black.withOpacity(0.4),
                       ), //<-- SEE HERE
                     ),
               focusedBorder: OutlineInputBorder(
@@ -108,7 +107,7 @@ class CustomTextfeild extends StatelessWidget {
                 borderSide: BorderSide(
                   width: 1.2,
                   // style: BorderStyle.none,
-                  color: ColorManager.grey2,
+                  color: ColorManager.ktextblackk,
                 ), //<-- SEE HERE
               ),
 

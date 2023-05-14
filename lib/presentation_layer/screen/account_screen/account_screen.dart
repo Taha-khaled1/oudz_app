@@ -49,8 +49,8 @@ class AccountScreen extends StatelessWidget {
                   },
                 ),
                 CustomListtile(
-                  widget: const Icon(Icons.person),
-                  titel: 'العناوين',
+                  widget: const Icon(Icons.home),
+                  titel: 'اضافة عنوان',
                   onTap: () {
                     Get.to(() => const AddressScreen());
                   },
