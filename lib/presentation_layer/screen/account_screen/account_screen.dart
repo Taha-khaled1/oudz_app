@@ -8,6 +8,7 @@ import 'package:oudz_app/presentation_layer/resources/styles_manager.dart';
 import 'package:oudz_app/presentation_layer/screen/account_screen/widget/customListtile.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:oudz_app/presentation_layer/screen/address_screen/address_screen.dart';
 import 'package:oudz_app/presentation_layer/screen/screenseting/aboutpage.dart';
 import 'package:oudz_app/presentation_layer/screen/screenseting/privacy_policy.dart';
 import 'package:oudz_app/presentation_layer/screen/screenseting/sharescreen.dart';
@@ -20,7 +21,7 @@ class AccountScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      bottomNavigationBar: Navb(),
+      bottomNavigationBar: const Navb(),
       backgroundColor: ColorManager.background,
       appBar: appbarscreen('معلومات الحساب'),
       body: InfoWidget(
@@ -47,13 +48,13 @@ class AccountScreen extends StatelessWidget {
                     // Get.to(EditProfileScreen());
                   },
                 ),
-                // CustomListtile(
-                //   widget: const Icon(Icons.person),
-                //   titel: 'الطلبات',
-                //   onTap: () {
-                //     // Get.to(EditProfileScreen());
-                //   },
-                // ),
+                CustomListtile(
+                  widget: const Icon(Icons.person),
+                  titel: 'العناوين',
+                  onTap: () {
+                    Get.to(() => const AddressScreen());
+                  },
+                ),
                 CustomListtile(
                   widget: const Icon(Icons.privacy_tip_outlined),
                   titel: 'سياسة الخصوصيه',
