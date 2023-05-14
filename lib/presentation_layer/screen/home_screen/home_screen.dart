@@ -133,7 +133,7 @@ class ProductCard extends StatelessWidget {
       child: Container(
         margin: const EdgeInsetsDirectional.symmetric(horizontal: 8.5),
         width: 170,
-        height: 280,
+        height: 310,
         child: Column(
           children: [
             ClipRRect(
@@ -157,6 +157,31 @@ class ProductCard extends StatelessWidget {
                 color: ColorManager.ktextblackk,
                 fontSize: FontSize.s18,
               ),
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                InkWell(
+                  onTap: () {},
+                  child: Image.asset(
+                    'assets/images/shopping-cart.png',
+                    width: 30,
+                    height: 30,
+                  ),
+                ),
+                const SizedBox(
+                  width: 8,
+                ),
+                InkWell(
+                  onTap: () {},
+                  child: Image.asset(
+                    'assets/icons/heart.png',
+                    width: 30,
+                    height: 30,
+                  ),
+                ),
+              ],
             ),
           ],
         ),
