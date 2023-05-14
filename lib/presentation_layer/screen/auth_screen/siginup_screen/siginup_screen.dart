@@ -47,10 +47,32 @@ class SiginUp_Screen extends StatelessWidget {
                   CustomTextfeild(
                     valid: (p0) {},
                     onsaved: (p0) {},
-                    titel: 'الاسم الكامل',
+                    titel: 'الاسم الاول',
                     width: 15,
                     height: 100,
                     icon: Icons.person,
+                  ),
+                  const SizedBox(
+                    height: 20,
+                  ),
+                  CustomTextfeild(
+                    valid: (p0) {},
+                    onsaved: (p0) {},
+                    titel: 'الاسم الثاني',
+                    width: 15,
+                    height: 100,
+                    icon: Icons.person,
+                  ),
+                  const SizedBox(
+                    height: 20,
+                  ),
+                  CustomTextfeild(
+                    valid: (p0) {},
+                    onsaved: (p0) {},
+                    titel: 'الاماره',
+                    width: 15,
+                    height: 100,
+                    icon: Icons.home,
                   ),
                   const SizedBox(
                     height: 20,
@@ -69,6 +91,18 @@ class SiginUp_Screen extends StatelessWidget {
                   CustomTextfeild(
                     valid: (p0) {},
                     onsaved: (p0) {},
+                    titel: 'رقم الهاتف',
+                    width: 15,
+                    height: 100,
+                    icon: Icons.phone,
+                  ),
+                  const SizedBox(
+                    height: 20,
+                  ),
+                  CustomTextfeild(
+                    valid: (p0) {},
+                    obsecuer: true,
+                    onsaved: (p0) {},
                     titel: 'كلمة السر',
                     width: 15,
                     height: 100,
@@ -79,6 +113,7 @@ class SiginUp_Screen extends StatelessWidget {
                   ),
                   CustomTextfeild(
                     valid: (p0) {},
+                    obsecuer: true,
                     onsaved: (p0) {},
                     titel: 'تاكيد كلمة السر',
                     width: 15,
