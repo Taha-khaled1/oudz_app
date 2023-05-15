@@ -112,8 +112,8 @@ class BottomSection extends StatelessWidget {
                       CachCard(
                         controller: controller,
                         width: width,
-                        text: 'الدفع كاش اونلاين',
-                        valuebut: 'الدفع كاش اونلاين',
+                        text: 'الدفع الكتروني',
+                        valuebut: 'الدفع الكتروني',
                       ),
                       const SizedBox(
                         height: 10,

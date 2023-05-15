@@ -9,6 +9,7 @@ import 'package:oudz_app/presentation_layer/screen/account_screen/widget/customL
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:oudz_app/presentation_layer/screen/address_screen/address_screen.dart';
+import 'package:oudz_app/presentation_layer/screen/edit_profile_screen/edit_profile_screen.dart';
 import 'package:oudz_app/presentation_layer/screen/screenseting/aboutpage.dart';
 import 'package:oudz_app/presentation_layer/screen/screenseting/privacy_policy.dart';
 import 'package:oudz_app/presentation_layer/screen/screenseting/sharescreen.dart';
@@ -45,7 +46,7 @@ class AccountScreen extends StatelessWidget {
                   widget: const Icon(Icons.person),
                   titel: 'معلومات الحساب',
                   onTap: () {
-                    // Get.to(EditProfileScreen());
+                    Get.to(() => const EditProfileScreen());
                   },
                 ),
                 CustomListtile(
