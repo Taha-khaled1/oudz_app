@@ -10,10 +10,6 @@ void main() async {
   sharedPreferences = await SharedPreferences.getInstance();
 
   runApp(
-    DevicePreview(
-      builder: (context) {
-        return const MyApp();
-      },
-    ),
+    const MyApp(),
   );
 }

@@ -11,7 +11,7 @@ List<GetPage<dynamic>>? getPage = [
   //     ]),
   GetPage(
     name: '/',
-    page: () => const Login_Screen(),
+    page: () => const HomeScreen(),
   ),
   // GetPage(
   //   name: Routes.PropertyDetalisScreen,
