@@ -22,30 +22,36 @@ class CartScreen extends StatelessWidget {
       appBar: appbarscreen('عربة التسوق'),
       body: InfoWidget(
         builder: (context, deviceInfo) {
-          return Column(
-            children: [
-              // Expanded(
-              //   child: ListView.builder(
-              //     itemCount: cartItem.length,
-              //     itemBuilder: (BuildContext context, int index) {
-              //       return CartCard(
-              //         cart: cartItem[index],
-              //         index: index,
-              //       );
-              //     },
-              //   ),
-              // ),
-              BottomSection(
-                width: deviceInfo.localWidth * 0.85,
-              ),
-              CustomButton(
-                width: deviceInfo.localWidth * 0.8,
-                haigh: 60,
-                color: ColorManager.kPrimary,
-                text: 'تاكيد',
-                press: () {},
-              ),
-            ],
+          return GetBuilder<CartController>(
+            builder: (controller) {
+              return Column(
+                children: [
+                  controller.islooding
+                      ? Center(child: CircularProgressIndicator())
+                      : Expanded(
+                          child: ListView.builder(
+                            itemCount: controller.cartItem.length,
+                            itemBuilder: (BuildContext context, int index) {
+                              return CartCard(
+                                cart: controller.cartItem[index],
+                                index: index,
+                              );
+                            },
+                          ),
+                        ),
+                  BottomSection(
+                    width: deviceInfo.localWidth * 0.85,
+                  ),
+                  CustomButton(
+                    width: deviceInfo.localWidth * 0.8,
+                    haigh: 60,
+                    color: ColorManager.kPrimary,
+                    text: 'تاكيد',
+                    press: () {},
+                  ),
+                ],
+              );
+            },
           );
         },
       ),

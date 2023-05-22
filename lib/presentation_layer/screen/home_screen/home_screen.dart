@@ -189,17 +189,17 @@ class ProductCard extends StatelessWidget {
               children: [
                 InkWell(
                   onTap: () async {
-                    await sqlDb?.fordeletedatabase();
-                    //  CartItem cartItem = CartItem(
-                    //   des: data!.description ?? '',
-                    //   itemsName: data!.name ?? '',
-                    //   itemsNameEn: data!.nameEn ?? '',
-                    //   itemsImage: data!.image ?? '',
-                    //   itemsPrice: data!.price ?? 1,
-                    //   id: data!.id ?? 1,
-                    //   count: data!.quantity ?? 1,
-                    // );
-                    // controller.addcart(context, cartItem);
+                    // await sqlDb?.fordeletedatabase();
+                    CartItem cartItem = CartItem(
+                      des: data!.description ?? '',
+                      itemsName: data!.name ?? '',
+                      itemsNameEn: data!.nameEn ?? '',
+                      itemsImage: data!.image ?? '',
+                      itemsPrice: data!.price ?? 1,
+                      id: data!.id ?? 1,
+                      count: 1,
+                    );
+                    controller.addcart(context, cartItem);
                   },
                   child: Image.asset(
                     'assets/images/shopping-cart.png',

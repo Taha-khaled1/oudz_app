@@ -1,9 +1,11 @@
+import 'package:oudz_app/data_layer/models/cart_model.dart';
 import 'package:oudz_app/presentation_layer/components/custombutten.dart';
 import 'package:oudz_app/presentation_layer/components/navbar.dart';
 import 'package:oudz_app/presentation_layer/resources/color_manager.dart';
 import 'package:oudz_app/presentation_layer/resources/font_manager.dart';
 import 'package:oudz_app/presentation_layer/resources/styles_manager.dart';
 import 'package:oudz_app/presentation_layer/screen/cart_screen/widget/cart_card.dart';
+import 'package:oudz_app/presentation_layer/screen/home_screen/controller/home_controller.dart';
 import 'package:oudz_app/presentation_layer/screen/home_screen/widget/Titelmore.dart';
 import 'package:oudz_app/presentation_layer/screen/more_product/more_product.dart';
 import 'package:oudz_app/presentation_layer/screen/product_detalis/product_detalis_controller/product_detalis_controller.dart';
@@ -16,7 +18,8 @@ class ProductDetalis extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    ProductDetalisController controller = Get.put(ProductDetalisController());
+    ProductDetalisController controllerpro =
+        Get.put(ProductDetalisController());
 
     return Scaffold(
       bottomNavigationBar: const Navb(),
@@ -24,7 +27,7 @@ class ProductDetalis extends StatelessWidget {
       body: SingleChildScrollView(
         child: Column(
           children: [
-            ImageWithBackButton(img: '${controller.data.image}'),
+            ImageWithBackButton(img: '${controllerpro.data.image}'),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 15),
               child: Column(
@@ -38,7 +41,7 @@ class ProductDetalis extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Text(
-                        controller.data.name ?? '',
+                        controllerpro.data.name ?? '',
                         style: MangeStyles().getBoldStyle(
                           color: ColorManager.ktextblackk,
                           fontSize: FontSize.s20,
@@ -53,8 +56,8 @@ class ProductDetalis extends StatelessWidget {
                           borderRadius: BorderRadius.circular(9),
                         ),
                         child: FutureBuilder<bool>(
-                          future: controller
-                              .isProductInFavorites(controller.data.id ?? 1),
+                          future: controllerpro
+                              .isProductInFavorites(controllerpro.data.id ?? 1),
                           builder: (BuildContext context,
                               AsyncSnapshot<bool> snapshot) {
                             if (snapshot.connectionState ==
@@ -89,7 +92,7 @@ class ProductDetalis extends StatelessWidget {
                     height: 20,
                   ),
                   Text(
-                    '${controller.data.description}',
+                    '${controllerpro.data.description}',
                     textAlign: TextAlign.start,
                     style: TextStyle(
                       fontSize: 17,
@@ -99,12 +102,28 @@ class ProductDetalis extends StatelessWidget {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      CustomButton(
-                        width: 185,
-                        haigh: 60,
-                        color: ColorManager.kPrimary,
-                        text: 'اضافة الي السله',
-                        press: () {},
+                      GetBuilder<HomeController>(
+                        init: HomeController(),
+                        builder: (controller) {
+                          return CustomButton(
+                            width: 185,
+                            haigh: 60,
+                            color: ColorManager.kPrimary,
+                            text: 'اضافة الي السله',
+                            press: () {
+                              CartItem cartItem = CartItem(
+                                des: controllerpro.data.description ?? '',
+                                itemsName: controllerpro.data.name ?? '',
+                                itemsNameEn: controllerpro.data.nameEn ?? '',
+                                itemsImage: controllerpro.data.image ?? '',
+                                itemsPrice: controllerpro.data.price ?? 1,
+                                id: controllerpro.data.id ?? 1,
+                                count: 1,
+                              );
+                              controller.addcart(context, cartItem);
+                            },
+                          );
+                        },
                       ),
                       Container(
                         alignment: Alignment.center,
@@ -115,7 +134,7 @@ class ProductDetalis extends StatelessWidget {
                           borderRadius: BorderRadius.circular(9),
                         ),
                         child: Text(
-                          '\$${controller.data.price}',
+                          '\$${controllerpro.data.price}',
                           style: MangeStyles().getBoldStyle(
                             color: ColorManager.kPrimary2,
                             fontSize: FontSize.s16,

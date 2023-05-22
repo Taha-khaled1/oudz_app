@@ -8,6 +8,7 @@ import 'package:oudz_app/data_layer/models/favorit_model.dart';
 import 'package:oudz_app/data_layer/models/product_model.dart';
 import 'package:oudz_app/main.dart';
 import 'package:oudz_app/presentation_layer/components/show_dialog.dart';
+import 'package:quickalert/models/quickalert_type.dart';
 import 'package:sqflite/sqflite.dart';
 
 class HomeController extends GetxController {
@@ -17,6 +18,19 @@ class HomeController extends GetxController {
     List<Map<String, dynamic>> result = await mydb!.rawQuery(sql);
 
     return result.isNotEmpty;
+  }
+
+  Future<int> getCartProductCount() async {
+    Database? mydb = await sqlDb!.db;
+    String sql = 'SELECT COUNT(*) AS total FROM cart';
+    List<Map<String, dynamic>> result = await mydb!.rawQuery(sql);
+
+    if (result.isNotEmpty) {
+      int count = result.first['total'];
+      return count;
+    } else {
+      return 0;
+    }
   }
 
   void addcart(BuildContext context, CartItem cartModel) async {
@@ -32,7 +46,8 @@ class HomeController extends GetxController {
         );
 
         if (deletedRows > 0) {
-          showDilog(context, 'تم حذف المنتج من السله بنجاح');
+          showDilog(context, 'تم حذف المنتج من السله بنجاح',
+              type: QuickAlertType.info);
         }
       } else {
         // Product is not a cart, so add it
@@ -56,6 +71,7 @@ class HomeController extends GetxController {
     } catch (e) {
       print(e);
     }
+    update();
   }
 
   void addfavorite(BuildContext context, FavoritModel favoritModel) async {

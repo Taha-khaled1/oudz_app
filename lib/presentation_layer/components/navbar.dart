@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:oudz_app/main.dart';
 import 'package:oudz_app/presentation_layer/resources/color_manager.dart';
 import 'package:oudz_app/presentation_layer/screen/account_screen/account_screen.dart';
 import 'package:oudz_app/presentation_layer/screen/cart_screen/cart_screen.dart';
 import 'package:oudz_app/presentation_layer/screen/favorit_screen/favorit_screen.dart';
+import 'package:oudz_app/presentation_layer/screen/home_screen/controller/home_controller.dart';
 import 'package:oudz_app/presentation_layer/screen/home_screen/home_screen.dart';
 import 'package:oudz_app/presentation_layer/screen/more_catogery/more_catogery.dart';
 
@@ -40,18 +42,43 @@ class Navb extends StatelessWidget {
                   Get.to(() => const CartScreen());
                 },
               ),
-              Positioned(
-                top: 0,
-                right: 8,
-                child: CircleAvatar(
-                  radius: 10,
-                  backgroundColor: ColorManager.kPrimary,
-                  child: Text(
-                    1.toString(),
-                    style: const TextStyle(color: Colors.white),
-                  ),
-                ),
+
+              GetBuilder<HomeController>(
+                init: HomeController(),
+                builder: (controller) {
+                  return FutureBuilder<int>(
+                    future: controller.getCartProductCount(),
+                    builder:
+                        (BuildContext context, AsyncSnapshot<int> snapshot) {
+                      if (snapshot.connectionState == ConnectionState.waiting) {
+                        // Future is still loading, return a placeholder widget or loading indicator
+                        return CircularProgressIndicator();
+                      } else if (snapshot.hasError) {
+                        // An error occurred while fetching the favorite status
+                        return Text('Error: ${snapshot.error}');
+                      } else {
+                        // Favorite status is available
+                        int count = snapshot.data ??
+                            0; // Use a default value if data is null
+
+                        return Positioned(
+                          top: 0,
+                          right: 8,
+                          child: CircleAvatar(
+                            radius: 10,
+                            backgroundColor: ColorManager.kPrimary,
+                            child: Text(
+                              count.toString(),
+                              style: const TextStyle(color: Colors.white),
+                            ),
+                          ),
+                        );
+                      }
+                    },
+                  );
+                },
               ),
+
               // Container(
               //   width: 30,
               //   height: 20,
