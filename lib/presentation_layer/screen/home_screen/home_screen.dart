@@ -1,16 +1,16 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:oudz_app/data_layer/models/favorit.dart';
+import 'package:oudz_app/main.dart';
 import 'package:oudz_app/presentation_layer/Infowidget/ui_components/info_widget.dart';
 import 'package:oudz_app/presentation_layer/components/appbar1.dart';
 import 'package:oudz_app/presentation_layer/components/navbar.dart';
 import 'package:oudz_app/presentation_layer/resources/color_manager.dart';
 import 'package:oudz_app/presentation_layer/resources/font_manager.dart';
-import 'package:oudz_app/presentation_layer/screen/more_product/more_product.dart';
-import 'package:oudz_app/presentation_layer/screen/home_screen/widget/Titelmore.dart';
+import 'package:oudz_app/presentation_layer/screen/home_screen/controller/home_controller.dart';
 import 'package:oudz_app/presentation_layer/screen/product_detalis/product_detalis_screen.dart';
 import 'package:url_launcher/url_launcher.dart';
-
 import '../../resources/styles_manager.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -75,42 +75,42 @@ class HomeScreen extends StatelessWidget {
                     //   ],
                     // ),
                   ),
-                  Titelmore(
-                    text1: 'عطور رجاليه',
-                    text2: 'المزيد',
-                    onTap: () {
-                      Get.to(() => const MoreProductScreen());
-                    },
-                  ),
+                  // Titelmore(
+                  //   text1: 'عطور رجاليه',
+                  //   text2: 'المزيد',
+                  //   onTap: () {
+                  //     Get.to(() => const MoreProductScreen());
+                  //   },
+                  // ),
                   Wrap(
                     children: [
                       for (int i = 0; i < 4; i++) const ProductCard(),
                     ],
                   ),
-                  Titelmore(
-                    text1: 'عطور نسائيه',
-                    text2: 'المزيد',
-                    onTap: () {
-                      Get.to(() => const MoreProductScreen());
-                    },
-                  ),
-                  Wrap(
-                    children: [
-                      for (int i = 0; i < 4; i++) const ProductCard(),
-                    ],
-                  ),
-                  Titelmore(
-                    text1: 'عطور جميله',
-                    text2: 'المزيد',
-                    onTap: () {
-                      Get.to(() => const MoreProductScreen());
-                    },
-                  ),
-                  Wrap(
-                    children: [
-                      for (int i = 0; i < 4; i++) const ProductCard(),
-                    ],
-                  ),
+                  // Titelmore(
+                  //   text1: 'عطور نسائيه',
+                  //   text2: 'المزيد',
+                  //   onTap: () {
+                  //     Get.to(() => const MoreProductScreen());
+                  //   },
+                  // ),
+                  // Wrap(
+                  //   children: [
+                  //     for (int i = 0; i < 4; i++) const ProductCard(),
+                  //   ],
+                  // ),
+                  // Titelmore(
+                  //   text1: 'عطور جميله',
+                  //   text2: 'المزيد',
+                  //   onTap: () {
+                  //     Get.to(() => const MoreProductScreen());
+                  //   },
+                  // ),
+                  // Wrap(
+                  //   children: [
+                  //     for (int i = 0; i < 4; i++) const ProductCard(),
+                  //   ],
+                  // ),
                 ],
               ),
             );
@@ -163,7 +163,9 @@ class ProductCard extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 InkWell(
-                  onTap: () {},
+                  onTap: () async {
+                    await sqlDb?.fordeletedatabase();
+                  },
                   child: Image.asset(
                     'assets/images/shopping-cart.png',
                     width: 30,
@@ -173,13 +175,26 @@ class ProductCard extends StatelessWidget {
                 const SizedBox(
                   width: 8,
                 ),
-                InkWell(
-                  onTap: () {},
-                  child: Image.asset(
-                    'assets/icons/heart.png',
-                    width: 30,
-                    height: 30,
-                  ),
+                GetBuilder<HomeController>(
+                  init: HomeController(),
+                  builder: (controller) {
+                    return InkWell(
+                      onTap: () {
+                        FavoritModel favoritModel = FavoritModel(
+                          id: 1,
+                          isfavorit: 1,
+                          title: 'title',
+                          image: 'image',
+                        );
+                        controller.addfavorite(context, favoritModel);
+                      },
+                      child: Image.asset(
+                        'assets/icons/heart.png',
+                        width: 30,
+                        height: 30,
+                      ),
+                    );
+                  },
                 ),
               ],
             ),

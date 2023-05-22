@@ -9,3 +9,12 @@ getAllCatogeryRespon() async {
 
   return respons;
 }
+
+getAllProductRespon() async {
+  Curd curd = Curd();
+  var respons = await curd.getrequest(
+    APiMange.getFeaturedProducts,
+  );
+
+  return respons;
+}

@@ -3,9 +3,10 @@ class APiMange {
   // static const String baseurlImage = "http://127.0.0.1:8000";
   static const String baseurl = "https://oudz.ae/api";
   static const String baseurlImage = "https://oudz.ae//storage/property";
-  static const String getAllCatogeryRespon = "$baseurl/getAllCategories";
 
-  static const String recommendhotel = "$baseurl/recommendhotel";
+  static const String getAllCatogeryRespon = "$baseurl/getAllCategories";
+  static const String getFeaturedProducts = "$baseurl/getFeaturedProducts";
+
   static const String mostview = "$baseurl/mostview";
   static const String forcountry = "$baseurl/forcountry";
   static const String search = "$baseurl/searchnameorcountrey?search";

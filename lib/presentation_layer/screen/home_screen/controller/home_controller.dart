@@ -1,12 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:get/get_state_manager/src/simple/get_controllers.dart';
+import 'package:get/get.dart';
+import 'package:oudz_app/application_layer/ShardFunction/handling.dart';
+import 'package:oudz_app/application_layer/ShardFunction/statusrequst.dart';
+import 'package:oudz_app/data_layer/function_resbon/resbons_all.dart';
 import 'package:oudz_app/data_layer/models/favorit.dart';
+import 'package:oudz_app/data_layer/models/product_model.dart';
 import 'package:oudz_app/main.dart';
 import 'package:oudz_app/presentation_layer/components/show_dialog.dart';
 
-List<FavoritModel> favoritList = [];
-
-class FavoritController extends GetxController {
+class HomeController extends GetxController {
   void addfavorite(BuildContext context, FavoritModel favoritModel) async {
     try {
       var isFavorite = await sqlDb!.readData(
@@ -43,8 +45,23 @@ class FavoritController extends GetxController {
     }
   }
 
-  Future getData() async {
-    var responsev = await sqlDb!.readData("SELECT * FROM favorite");
-    return responsev;
+  ProductModel? productModelstow;
+
+  late StatusRequest statusRequest1;
+  getAllproduct() async {
+    try {
+      statusRequest1 = StatusRequest.loading;
+      var response = await getAllProductRespon();
+      statusRequest1 = handlingData(response);
+      if (statusRequest1 == StatusRequest.success) {
+        print('----------------------------------');
+        productModelstow = await ProductModel.fromJson(response);
+      } else {
+        statusRequest1 = StatusRequest.failure;
+      }
+    } catch (e) {
+      statusRequest1 = StatusRequest.erorr;
+    }
+    update();
   }
 }
