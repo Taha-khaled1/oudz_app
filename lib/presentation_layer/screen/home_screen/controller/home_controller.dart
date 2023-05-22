@@ -7,8 +7,18 @@ import 'package:oudz_app/data_layer/models/favorit.dart';
 import 'package:oudz_app/data_layer/models/product_model.dart';
 import 'package:oudz_app/main.dart';
 import 'package:oudz_app/presentation_layer/components/show_dialog.dart';
+import 'package:quickalert/models/quickalert_type.dart';
+import 'package:sqflite/sqflite.dart';
 
 class HomeController extends GetxController {
+  Future<bool> isProductInFavorites(int productId) async {
+    Database? mydb = await sqlDb!.db;
+    String sql = 'SELECT * FROM favorite WHERE id = $productId';
+    List<Map<String, dynamic>> result = await mydb!.rawQuery(sql);
+
+    return result.isNotEmpty;
+  }
+
   void addfavorite(BuildContext context, FavoritModel favoritModel) async {
     try {
       var isFavorite = await sqlDb!.readData(
@@ -21,9 +31,10 @@ class HomeController extends GetxController {
           'DELETE FROM favorite WHERE id = ${favoritModel.id}',
         );
 
-        if (deletedRows > 0) {
-          showDilog(context, 'تم حذف المنتج من المفضله بنجاح');
-        }
+        // if (deletedRows > 0) {
+        //   showDilog(context, 'تم حذف المنتج من المفضله بنجاح',
+        //       type: QuickAlertType.info);
+        // }
       } else {
         // Product is not a favorite, so add it
         int respons = await sqlDb!.insert(
@@ -36,13 +47,15 @@ class HomeController extends GetxController {
           },
         );
 
-        if (respons > 0) {
-          showDilog(context, 'تم اضافة المنتج الي المفضله بنجاح');
-        }
+        // if (respons > 0) {
+        //   showDilog(context, 'تم اضافة المنتج الي المفضله بنجاح');
+        // }
       }
+      update();
     } catch (e) {
       print(e);
     }
+    update();
   }
 
   ProductModel? productModelstow;
@@ -63,5 +76,11 @@ class HomeController extends GetxController {
       statusRequest1 = StatusRequest.erorr;
     }
     update();
+  }
+
+  @override
+  void onInit() {
+    getAllproduct();
+    super.onInit();
   }
 }

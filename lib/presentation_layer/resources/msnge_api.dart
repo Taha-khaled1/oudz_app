@@ -2,8 +2,9 @@ class APiMange {
   // static const String baseurl = "http://127.0.0.1:8000/api";
   // static const String baseurlImage = "http://127.0.0.1:8000";
   static const String baseurl = "https://oudz.ae/api";
-  static const String baseurlImage = "https://oudz.ae//storage/property";
-
+  static const String baseurlImage = "https://oudz.ae/storage/property";
+  static const String baseurlImagepro =
+      "https://oudz.ae/storage/property"; //https://oudz.ae/storage/property/1684765649.JPG
   static const String getAllCatogeryRespon = "$baseurl/getAllCategories";
   static const String getFeaturedProducts = "$baseurl/getFeaturedProducts";
 
@@ -12,7 +13,7 @@ class APiMange {
   static const String search = "$baseurl/searchnameorcountrey?search";
   static const String filterdata = "$baseurl/filterdata";
   static const String catogerydata = "$baseurl/catogerydata";
-  static const String propertydetalis = "$baseurl/propertydetalis";
+  static const String getProductdetalis = "$baseurl/getProduct";
   static const String addreport = "$baseurl/addreport";
   static const String addquery = "$baseurl/addenqueris";
   static const String addproperty = "$baseurl/addproperty";

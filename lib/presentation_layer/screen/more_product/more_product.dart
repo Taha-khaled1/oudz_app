@@ -47,25 +47,25 @@ class MoreProductScreen extends StatelessWidget {
                           // const SizedBox(
                           //   height: 10,
                           // ),
-                          Expanded(
-                            child: GridView.builder(
-                              // controller: controller.controller,
-                              gridDelegate:
-                                  SliverGridDelegateWithFixedCrossAxisCount(
-                                crossAxisCount: 2,
-                                crossAxisSpacing: 10,
-                                mainAxisSpacing: 10,
-                                childAspectRatio:
-                                    getChildAspectRatio(deviceInfo),
-                              ),
-                              itemCount: 8,
-                              itemBuilder: (BuildContext context, int index) {
-                                return ProductCard(
-                                    // image: 'assets/images/image 22.png',
-                                    );
-                              },
-                            ),
-                          ),
+                          // Expanded(
+                          //   child: GridView.builder(
+                          //     // controller: controller.controller,
+                          //     gridDelegate:
+                          //         SliverGridDelegateWithFixedCrossAxisCount(
+                          //       crossAxisCount: 2,
+                          //       crossAxisSpacing: 10,
+                          //       mainAxisSpacing: 10,
+                          //       childAspectRatio:
+                          //           getChildAspectRatio(deviceInfo),
+                          //     ),
+                          //     itemCount: 8,
+                          //     itemBuilder: (BuildContext context, int index) {
+                          //       return ProductCard(
+                          //           // image: 'assets/images/image 22.png',
+                          //           );
+                          //     },
+                          //   ),
+                          // ),
 
                           // if (controller.isLoadMoreRunning == true)
                           //   const Padding(

@@ -18,3 +18,12 @@ getAllProductRespon() async {
 
   return respons;
 }
+
+getProductDetalisRespon(int idproduct) async {
+  Curd curd = Curd();
+  var respons = await curd.getrequest(
+    '${APiMange.getProductdetalis}/$idproduct',
+  );
+  print(respons);
+  return respons;
+}

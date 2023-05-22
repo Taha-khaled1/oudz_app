@@ -4,8 +4,9 @@ import 'package:flutter/material.dart';
 class ImageWithBackButton extends StatelessWidget {
   const ImageWithBackButton({
     super.key,
+    required this.img,
   });
-
+  final String img;
   @override
   Widget build(BuildContext context) {
     return Stack(
@@ -17,11 +18,11 @@ class ImageWithBackButton extends StatelessWidget {
           decoration: BoxDecoration(
             color: ColorManager.background,
           ),
-          child: Image.asset(
-            'assets/images/perfum.jpg',
-            fit: BoxFit.contain,
+          child: Image.network(
+            img,
+            fit: BoxFit.cover,
             height: 500,
-            width: 500,
+            width: 1000,
           ),
         ),
         Positioned(

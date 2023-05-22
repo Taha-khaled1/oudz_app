@@ -2,12 +2,15 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:oudz_app/data_layer/models/favorit.dart';
+import 'package:oudz_app/data_layer/models/product_model.dart';
 import 'package:oudz_app/main.dart';
 import 'package:oudz_app/presentation_layer/Infowidget/ui_components/info_widget.dart';
 import 'package:oudz_app/presentation_layer/components/appbar1.dart';
 import 'package:oudz_app/presentation_layer/components/navbar.dart';
+import 'package:oudz_app/presentation_layer/handlingView/handlingview.dart';
 import 'package:oudz_app/presentation_layer/resources/color_manager.dart';
 import 'package:oudz_app/presentation_layer/resources/font_manager.dart';
+import 'package:oudz_app/presentation_layer/resources/msnge_api.dart';
 import 'package:oudz_app/presentation_layer/screen/home_screen/controller/home_controller.dart';
 import 'package:oudz_app/presentation_layer/screen/product_detalis/product_detalis_screen.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -17,6 +20,7 @@ class HomeScreen extends StatelessWidget {
   const HomeScreen({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
+    HomeController controller = Get.put(HomeController());
     List<Widget>? items = [
       Image.asset('assets/images/logo.jpg'),
     ];
@@ -82,10 +86,25 @@ class HomeScreen extends StatelessWidget {
                   //     Get.to(() => const MoreProductScreen());
                   //   },
                   // ),
-                  Wrap(
-                    children: [
-                      for (int i = 0; i < 4; i++) const ProductCard(),
-                    ],
+                  GetBuilder<HomeController>(
+                    builder: (controller) {
+                      return HandlingDataView(
+                        statusRequest: controller.statusRequest1,
+                        widget: Wrap(
+                          children: [
+                            for (int i = 0;
+                                i <
+                                    (controller
+                                            .productModelstow?.data?.length ??
+                                        0);
+                                i++)
+                              ProductCard(
+                                data: controller.productModelstow?.data?[i],
+                              ),
+                          ],
+                        ),
+                      );
+                    },
                   ),
                   // Titelmore(
                   //   text1: 'عطور نسائيه',
@@ -122,13 +141,17 @@ class HomeScreen extends StatelessWidget {
 class ProductCard extends StatelessWidget {
   const ProductCard({
     super.key,
+    required this.data,
   });
+  final Data? data;
 
   @override
   Widget build(BuildContext context) {
+    HomeController controller = Get.put(HomeController());
+
     return InkWell(
       onTap: () {
-        Get.to(() => const ProductDetalis());
+        Get.to(() => const ProductDetalis(), arguments: {'data': data});
       },
       child: Container(
         margin: const EdgeInsetsDirectional.symmetric(horizontal: 8.5),
@@ -138,21 +161,22 @@ class ProductCard extends StatelessWidget {
           children: [
             ClipRRect(
               borderRadius: BorderRadius.circular(15),
-              child: Image.asset(
-                'assets/images/perfum.jpg',
-                fit: BoxFit.fitHeight,
+              child: Image.network(
+                data!.image ?? '',
+                fit: BoxFit.cover,
+                width: 400,
                 height: 210,
               ),
             ),
             Text(
-              'عطر وايت عود',
+              data!.name ?? '',
               style: MangeStyles().getBoldStyle(
                 color: ColorManager.ktextblackk,
                 fontSize: FontSize.s18,
               ),
             ),
             Text(
-              '180 درهم',
+              '${data!.price} درهم',
               style: MangeStyles().getBoldStyle(
                 color: ColorManager.ktextblackk,
                 fontSize: FontSize.s18,
@@ -178,20 +202,47 @@ class ProductCard extends StatelessWidget {
                 GetBuilder<HomeController>(
                   init: HomeController(),
                   builder: (controller) {
+                    Future<bool> isFavorite =
+                        controller.isProductInFavorites(data!.id ?? 1);
                     return InkWell(
                       onTap: () {
                         FavoritModel favoritModel = FavoritModel(
-                          id: 1,
+                          id: data!.id ?? 1,
                           isfavorit: 1,
-                          title: 'title',
-                          image: 'image',
+                          title: data!.name ?? '',
+                          image: data!.image ?? '',
                         );
                         controller.addfavorite(context, favoritModel);
                       },
-                      child: Image.asset(
-                        'assets/icons/heart.png',
-                        width: 30,
-                        height: 30,
+                      child: FutureBuilder<bool>(
+                        future: controller.isProductInFavorites(data!.id ?? 1),
+                        builder: (BuildContext context,
+                            AsyncSnapshot<bool> snapshot) {
+                          if (snapshot.connectionState ==
+                              ConnectionState.waiting) {
+                            // Future is still loading, return a placeholder widget or loading indicator
+                            return CircularProgressIndicator();
+                          } else if (snapshot.hasError) {
+                            // An error occurred while fetching the favorite status
+                            return Text('Error: ${snapshot.error}');
+                          } else {
+                            // Favorite status is available
+                            bool favorite = snapshot.data ??
+                                false; // Use a default value if data is null
+
+                            return favorite
+                                ? Icon(
+                                    Icons.favorite,
+                                    color: Colors.red,
+                                    size: 32,
+                                  )
+                                : Icon(
+                                    Icons.favorite_outline,
+                                    size: 32,
+                                    color: Colors.grey,
+                                  );
+                          }
+                        },
                       ),
                     );
                   },
