@@ -3,11 +3,9 @@ import 'package:get/get.dart';
 import 'package:oudz_app/application_layer/ShardFunction/handling.dart';
 import 'package:oudz_app/application_layer/ShardFunction/statusrequst.dart';
 import 'package:oudz_app/data_layer/function_resbon/resbons_all.dart';
-import 'package:oudz_app/data_layer/models/favorit.dart';
+import 'package:oudz_app/data_layer/models/favorit_model.dart';
 import 'package:oudz_app/data_layer/models/product_model.dart';
 import 'package:oudz_app/main.dart';
-import 'package:oudz_app/presentation_layer/components/show_dialog.dart';
-import 'package:quickalert/models/quickalert_type.dart';
 import 'package:sqflite/sqflite.dart';
 
 class HomeController extends GetxController {
@@ -41,7 +39,9 @@ class HomeController extends GetxController {
           'favorite',
           {
             'id': favoritModel.id,
-            'isfavorit': favoritModel.isfavorit,
+            "titleEn": favoritModel.titleEn,
+            "des": favoritModel.des,
+            "price": favoritModel.price,
             'title': favoritModel.title,
             'image': favoritModel.image,
           },

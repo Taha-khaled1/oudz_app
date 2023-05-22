@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get_state_manager/src/simple/get_controllers.dart';
-import 'package:oudz_app/data_layer/models/favorit.dart';
+import 'package:oudz_app/data_layer/models/favorit_model.dart';
 import 'package:oudz_app/main.dart';
 import 'package:oudz_app/presentation_layer/components/show_dialog.dart';
 
@@ -28,7 +28,6 @@ class FavoritController extends GetxController {
           'favorite',
           {
             'id': favoritModel.id,
-            'isfavorit': favoritModel.isfavorit,
             'title': favoritModel.title,
             'image': favoritModel.image,
           },

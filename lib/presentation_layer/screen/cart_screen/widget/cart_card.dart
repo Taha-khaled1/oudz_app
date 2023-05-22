@@ -1,4 +1,4 @@
-import 'package:oudz_app/data_layer/models/carttest.dart';
+import 'package:oudz_app/data_layer/models/cart_model.dart';
 import 'package:oudz_app/presentation_layer/resources/color_manager.dart';
 import 'package:oudz_app/presentation_layer/resources/font_manager.dart';
 import 'package:oudz_app/presentation_layer/resources/styles_manager.dart';
@@ -33,7 +33,7 @@ class CartCard extends StatelessWidget {
                   borderRadius: BorderRadius.circular(15),
                 ),
                 child: Image.asset(
-                  cart!.image,
+                  cart!.itemsImage,
                   width: 200,
                   height: 210,
                   fit: BoxFit.fill,
@@ -48,7 +48,7 @@ class CartCard extends StatelessWidget {
               SizedBox(
                 width: 200,
                 child: Text(
-                  cart!.name, textAlign: TextAlign.right,
+                  cart!.itemsName, textAlign: TextAlign.right,
                   style: const TextStyle(
                     color: Colors.black,
                     fontSize: 15,
@@ -73,7 +73,7 @@ class CartCard extends StatelessWidget {
                       ),
                     ),
                     TextSpan(
-                      text: cart!.price.toString(),
+                      text: cart!.itemsPrice.toString(),
                       style: MangeStyles().getBoldStyle(
                         color: ColorManager.kPrimary,
                         fontSize: FontSize.s16,

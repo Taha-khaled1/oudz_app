@@ -1,6 +1,7 @@
 import 'package:oudz_app/presentation_layer/components/appbar1.dart';
 import 'package:oudz_app/presentation_layer/resources/color_manager.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_html/flutter_html.dart';
 
 class PrivacyPolicy extends StatelessWidget {
   const PrivacyPolicy({super.key});
@@ -14,72 +15,133 @@ class PrivacyPolicy extends StatelessWidget {
         backgroundColor: ColorManager.background,
       ),
       backgroundColor: ColorManager.background,
-      body: SingleChildScrollView(
-        child: Column(
-          children: <Widget>[
-            appbarscreen('الشروط و الاحكام'),
-            Text(
-              'Terms and Conditions',
-              style: Theme.of(context).textTheme.headline5,
-            ),
-            const SizedBox(height: 16.0),
-            Text(
-              'Welcome to our real estate application! Our goal is to provide you with a simple and efficient platform for selling and renting real estate. By using our application, you agree to the following terms and conditions.',
-              style: Theme.of(context).textTheme.headline6,
-              textAlign: TextAlign.center,
-            ),
-            const SizedBox(height: 16.0),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 10),
-              child: Directionality(
-                textDirection: TextDirection.ltr,
-                child: Text(
-                  '1. User account\n'
-                  '  1.1 In order to use our application, you must create an account.\n'
-                  '  1.2 You are responsible for maintaining the confidentiality of your account information and password.\n'
-                  '  1.3 You agree to immediately notify us of any unauthorized use of your account.\n'
-                  '\n'
-                  '2. Use of the application\n'
-                  '  2.1 You may use our application only for lawful purposes and in accordance with these terms and conditions.\n'
-                  '  2.2 You agree not to use our application:\n'
-                  '    2.2.1 To upload, post, or otherwise transmit any content that is unlawful, harmful, threatening, abusive, harassing, defamatory, obscene, vulgar, sexually explicit, or otherwise offensive.\n'
-                  '    2.2.2 To impersonate any person or entity.\n'
-                  '    2.2.3 To interfere with or disrupt the operation of our application.\n'
-                  '\n'
-                  '3. Content\n'
-                  '  3.1 Our application allows you to upload, post, or otherwise transmit content, including but not limited to, property descriptions, photos, and videos.\n'
-                  '  3.2 You are solely responsible for the content that you upload, post, or otherwise transmit through our application.\n'
-                  '  3.3 You agree not to upload, post, or otherwise transmit any content that infringes any patent, trademark, trade secret, copyright, or other proprietary rights of any party.\n'
-                  '  3.4 You grant us a non-exclusive, transferable, sub-licensable, royalty-free, worldwide license to use any content that you upload, post, or otherwise transmit through our application.\n'
-                  '\n'
-                  '4. Disclaimers\n'
-                  '  4.1 Our application is provided on an "as is" and "as available" basis. We make no representations or warranties of any kind, express or implied, as to the operation of our application or the information, content, materials, or products included in our application.\n'
-                  '  4.2 You understand and agree \n'
-                  ' that your use of our application is at your own risk and that we will not be liable for any damages of any kind arising from the use of our application, including but not limited to, direct, indirect, incidental, punitive, and consequential damages.\n'
-                  '\n'
-                  '5. Limitation of Liability\n'
-                  ' 5.1 In no event shall we be liable for any damages of any kind, including but not limited to, direct, indirect, incidental, punitive, and consequential damages, arising from the use of our application or the inability to use our application.\n'
-                  '\n'
-                  '6. Indemnification\n'
-                  ' 6.1 You agree to indemnify, defend, and hold harmless us, our affiliates, and our respective officers, directors, employees, agents, licensors, and suppliers from and against all losses, expenses, damages, and costs, including reasonable attorneys fees, resulting from any violation of these terms and conditions or any activity related to your account.\n'
-                  '\n'
-                  '7. Changes to these terms and conditions\n'
-                  ' 7.1 We reserve the right to modify these terms and conditions at any time.\n'
-                  ' 7.2 Your continued use of our application following the posting of changes to these terms and conditions will mean that you accept those changes.\n'
-                  '\n'
-                  '8. Governing Law\n'
-                  ' 8.1 These terms and conditions shall be governed by and construed in accordance with the laws of the country in which our application is hosted.\n'
-                  '\n'
-                  '9. Contact Information\n'
-                  ' 9.1 If you have any questions about these terms and conditions, please contact us at [insert contact information].\n',
-                  style: TextStyle(
-                    fontSize: 20,
-                    color: ColorManager.ktextblackk,
-                  ),
-                ),
+      body: Directionality(
+        textDirection: TextDirection.ltr,
+        child: SingleChildScrollView(
+          child: Column(
+            children: [
+              appbarscreen('سياسة الخصوصيه'),
+              Html(
+                data: """
+        
+        
+        <!DOCTYPE html>
+                <html>
+                <head>
+              <meta charset='utf-8'>
+              <meta name='viewport' content='width=device-width'>
+              <title>Privacy Policy</title>
+              <style> body { font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; padding:1em; } </style>
+                </head>
+                <body>
+                <strong>Privacy Policy</strong> <p>
+                          Oudz built the OUDZ app as
+                          a Free app. This SERVICE is provided by
+                          Oudz at no cost and is intended for use as
+                          is.
+                        </p> <p>
+                          This page is used to inform visitors regarding our
+                          policies with the collection, use, and disclosure of Personal
+                          Information if anyone decided to use our Service.
+                        </p> <p>
+                          If you choose to use our Service, then you agree to
+                          the collection and use of information in relation to this
+                          policy. The Personal Information that we collect is
+                          used for providing and improving the Service. We will not use or share your information with
+                          anyone except as described in this Privacy Policy.
+                        </p> <p>
+                          The terms used in this Privacy Policy have the same meanings
+                          as in our Terms and Conditions, which are accessible at
+                          OUDZ unless otherwise defined in this Privacy Policy.
+                        </p> <p><strong>Information Collection and Use</strong></p> <p>
+                          For a better experience, while using our Service, we
+                          may require you to provide us with certain personally
+                          identifiable information. The information that
+                          we request will be retained by us and used as described in this privacy policy.
+                        </p> <div><p>
+                            The app does use third-party services that may collect
+                            information used to identify you.
+                          </p> <p>
+                            Link to the privacy policy of third-party service providers used
+                            by the app
+                          </p> <ul><li><a href="https://www.google.com/policies/privacy/" target="_blank" rel="noopener noreferrer">Google Play Services</a></li><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----></ul></div> <p><strong>Log Data</strong></p> <p>
+                          We want to inform you that whenever you
+                          use our Service, in a case of an error in the app
+                          we collect data and information (through third-party
+                          products) on your phone called Log Data. This Log Data may
+                          include information such as your device Internet Protocol
+                          (“IP”) address, device name, operating system version, the
+                          configuration of the app when utilizing our Service,
+                          the time and date of your use of the Service, and other
+                          statistics.
+                        </p> <p><strong>Cookies</strong></p> <p>
+                          Cookies are files with a small amount of data that are
+                          commonly used as anonymous unique identifiers. These are sent
+                          to your browser from the websites that you visit and are
+                          stored on your device's internal memory.
+                        </p> <p>
+                          This Service does not use these “cookies” explicitly. However,
+                          the app may use third-party code and libraries that use
+                          “cookies” to collect information and improve their services.
+                          You have the option to either accept or refuse these cookies
+                          and know when a cookie is being sent to your device. If you
+                          choose to refuse our cookies, you may not be able to use some
+                          portions of this Service.
+                        </p> <p><strong>Service Providers</strong></p> <p>
+                          We may employ third-party companies and
+                          individuals due to the following reasons:
+                        </p> <ul><li>To facilitate our Service;</li> <li>To provide the Service on our behalf;</li> <li>To perform Service-related services; or</li> <li>To assist us in analyzing how our Service is used.</li></ul> <p>
+                          We want to inform users of this Service
+                          that these third parties have access to their Personal
+                          Information. The reason is to perform the tasks assigned to
+                          them on our behalf. However, they are obligated not to
+                          disclose or use the information for any other purpose.
+                        </p> <p><strong>Security</strong></p> <p>
+                          We value your trust in providing us your
+                          Personal Information, thus we are striving to use commercially
+                          acceptable means of protecting it. But remember that no method
+                          of transmission over the internet, or method of electronic
+                          storage is 100% secure and reliable, and we cannot
+                          guarantee its absolute security.
+                        </p> <p><strong>Links to Other Sites</strong></p> <p>
+                          This Service may contain links to other sites. If you click on
+                          a third-party link, you will be directed to that site. Note
+                          that these external sites are not operated by us.
+                          Therefore, we strongly advise you to review the
+                          Privacy Policy of these websites. We have
+                          no control over and assume no responsibility for the content,
+                          privacy policies, or practices of any third-party sites or
+                          services.
+                        </p> <p><strong>Children’s Privacy</strong></p> <div><p>
+                            These Services do not address anyone under the age of 13.
+                            We do not knowingly collect personally
+                            identifiable information from children under 13 years of age. In the case
+                            we discover that a child under 13 has provided
+                            us with personal information, we immediately
+                            delete this from our servers. If you are a parent or guardian
+                            and you are aware that your child has provided us with
+                            personal information, please contact us so that
+                            we will be able to do the necessary actions.
+                          </p></div> <!----> <p><strong>Changes to This Privacy Policy</strong></p> <p>
+                          We may update our Privacy Policy from
+                          time to time. Thus, you are advised to review this page
+                          periodically for any changes. We will
+                          notify you of any changes by posting the new Privacy Policy on
+                          this page.
+                        </p> <p>This policy is effective as of 2023-05-22</p> <p><strong>Contact Us</strong></p> <p>
+                          If you have any questions or suggestions about our
+                          Privacy Policy, do not hesitate to contact us at oudze@oudze.ae.
+                        </p> <p>This privacy policy page was created at <a href="https://privacypolicytemplate.net" target="_blank" rel="noopener noreferrer">privacypolicytemplate.net </a>and modified/generated by <a href="https://app-privacy-policy-generator.nisrulz.com/" target="_blank" rel="noopener noreferrer">App Privacy Policy Generator</a></p>
+                </body>
+                </html>
+              
+              
+              
+              
+              """,
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );

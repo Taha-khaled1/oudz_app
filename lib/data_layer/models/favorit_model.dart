@@ -1,13 +1,14 @@
 class FavoritModel {
-  final int id;
-  final int isfavorit;
+  final int id, price;
   final String title;
-  final String image;
+  final String image, titleEn, des;
 
   FavoritModel({
     required this.id,
-    required this.isfavorit,
     required this.title,
     required this.image,
+    required this.price,
+    required this.titleEn,
+    required this.des,
   });
 }

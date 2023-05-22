@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:oudz_app/data_layer/models/carttest.dart';
+import 'package:oudz_app/data_layer/models/cart_model.dart';
+import 'package:oudz_app/main.dart';
 
 import 'package:quickalert/quickalert.dart';
 
@@ -16,65 +17,26 @@ class CartController extends GetxController {
     deliveryType = value;
     update();
   }
-  // CartListModels? cartListModels;
-  // List<CartItems> carModelsdemo = [];
 
-  // getCartList(int idCato) async {
-  //   carModelsdemo.clear();
-  //   totelPrice = 0;
-  //   totelTex = 0;
-  //   try {
-  //     var response = await getCartListRes(idCato);
-
-  //     for (var i = 0; i < response.length; i++) {
-  //       cartListModels = await CartListModels.fromJson(response[i]);
-  //       for (int q = 0; q < cartListModels!.cartItems!.length; q++) {
-  //         totelPrice += cartListModels!.cartItems![q].price!.toDouble() *
-  //             cartListModels!.cartItems![q].quantity!.toDouble();
-  //         totelTex += cartListModels!.cartItems![q].tax!.toDouble() *
-  //             cartListModels!.cartItems![q].quantity!.toDouble();
-  //         carModelsdemo.add(cartListModels!.cartItems![q]);
-  //       }
-  //     }
-  //     update();
-  //     return response;
-  //   } catch (e) {
-  //     print(' erorr catch $e');
-  //     return 'error';
-  //   }
-  // }
-
-  // StatusRequest statusRequest = StatusRequest.none;
-  // deletecarts(BuildContext context, int id) async {
-  //   statusRequest = StatusRequest.loading;
-  //   update();
-
-  //   var respon = await deleteFromCartRespon(id);
-  //   statusRequest = handlingData(respon);
-  //   try {
-  //     if (StatusRequest.success == statusRequest) {
-  //       if (respon['result'].toString() == 'true') {
-  //         showDilog(context, 'تم حذف المنتج بنجاح');
-  //         carModelsdemo.removeWhere(
-  //           (element) => element.id == id,
-  //         );
-  //       } else {
-  //         showDilog(
-  //           context,
-  //           'لم يتم حذف المنج ربما يوجد خطاء',
-  //           type: QuickAlertType.info,
-  //         );
-  //       }
-  //     } else {
-  //       showDilog(context, 'يوجد مشكله ما', type: QuickAlertType.error);
-  //     }
-  //   } catch (e) {
-  //     print('catch $e');
-  //     showDilog(context, 'يوجد مشكله ما', type: QuickAlertType.error);
-  //   }
-
-  //   update();
-  // }
+  bool islooding = true;
+  List<CartItem> cartItem = [];
+  void getData() async {
+    var responsev = await sqlDb!.readData("SELECT * FROM cart");
+    for (var element in responsev) {
+      cartItem.add(
+        CartItem(
+          des: element['des'],
+          itemsName: element['itemsName'],
+          itemsNameEn: element['itemsNameEn'],
+          itemsImage: element['itemsImage'],
+          itemsPrice: element['itemsPrice'],
+          id: element['id'],
+          count: count,
+        ),
+      );
+    }
+    islooding = false;
+  }
 
   icrasingCount(int index, double price) {
     count++;

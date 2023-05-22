@@ -35,8 +35,10 @@ class SqlDb {
         '''
     CREATE TABLE favorite (
     "id" INTEGER  NOT NULL PRIMARY KEY,
-    "isfavorit" INTEGER NULL,
     "title" TEXT(500),
+    "titleEn" TEXT(500),
+    "des" TEXT(500),
+    "price" TEXT(500),
     "image" TEXT(500)
 );
  ''');
@@ -48,8 +50,9 @@ class SqlDb {
     "itemsNameEn" TEXT(255),
     "itemsPrice" TEXT(255),
     "itemsImage" TEXT(255),
-    "Quntity" TEXT(255),
-    "itemsDiscount" TEXT(255)
+    "des" TEXT(500),
+    "quntity" TEXT(255)
+
 );
  ''');
     // print(" onCreate =====================================");

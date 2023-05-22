@@ -1,3 +1,4 @@
+import 'package:flutter_html/flutter_html.dart';
 import 'package:oudz_app/presentation_layer/components/appbar1.dart';
 import 'package:oudz_app/presentation_layer/resources/color_manager.dart';
 import 'package:flutter/material.dart';
@@ -16,64 +17,132 @@ class TermsAndConditionsPage extends StatelessWidget {
         child: Column(
           children: <Widget>[
             appbarscreen('الشروط و الاحكام'),
-            Text(
-              'Terms and Conditions',
-              style: Theme.of(context).textTheme.headline5,
-            ),
-            SizedBox(height: 16.0),
-            Text(
-              'Welcome to our real estate application! Our goal is to provide you with a simple and efficient platform for selling and renting real estate. By using our application, you agree to the following terms and conditions.',
-              style: Theme.of(context).textTheme.headline6,
-              textAlign: TextAlign.center,
-            ),
-            SizedBox(height: 16.0),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 10),
-              child: Directionality(
-                textDirection: TextDirection.ltr,
-                child: Text(
-                  '1. User account\n'
-                  '  1.1 In order to use our application, you must create an account.\n'
-                  '  1.2 You are responsible for maintaining the confidentiality of your account information and password.\n'
-                  '  1.3 You agree to immediately notify us of any unauthorized use of your account.\n'
-                  '\n'
-                  '2. Use of the application\n'
-                  '  2.1 You may use our application only for lawful purposes and in accordance with these terms and conditions.\n'
-                  '  2.2 You agree not to use our application:\n'
-                  '    2.2.1 To upload, post, or otherwise transmit any content that is unlawful, harmful, threatening, abusive, harassing, defamatory, obscene, vulgar, sexually explicit, or otherwise offensive.\n'
-                  '    2.2.2 To impersonate any person or entity.\n'
-                  '    2.2.3 To interfere with or disrupt the operation of our application.\n'
-                  '\n'
-                  '3. Content\n'
-                  '  3.1 Our application allows you to upload, post, or otherwise transmit content, including but not limited to, property descriptions, photos, and videos.\n'
-                  '  3.2 You are solely responsible for the content that you upload, post, or otherwise transmit through our application.\n'
-                  '  3.3 You agree not to upload, post, or otherwise transmit any content that infringes any patent, trademark, trade secret, copyright, or other proprietary rights of any party.\n'
-                  '  3.4 You grant us a non-exclusive, transferable, sub-licensable, royalty-free, worldwide license to use any content that you upload, post, or otherwise transmit through our application.\n'
-                  '\n'
-                  '4. Disclaimers\n'
-                  '  4.1 Our application is provided on an "as is" and "as available" basis. We make no representations or warranties of any kind, express or implied, as to the operation of our application or the information, content, materials, or products included in our application.\n'
-                  '  4.2 You understand and agree \n'
-                  ' that your use of our application is at your own risk and that we will not be liable for any damages of any kind arising from the use of our application, including but not limited to, direct, indirect, incidental, punitive, and consequential damages.\n'
-                  '\n'
-                  '5. Limitation of Liability\n'
-                  ' 5.1 In no event shall we be liable for any damages of any kind, including but not limited to, direct, indirect, incidental, punitive, and consequential damages, arising from the use of our application or the inability to use our application.\n'
-                  '\n'
-                  '6. Indemnification\n'
-                  ' 6.1 You agree to indemnify, defend, and hold harmless us, our affiliates, and our respective officers, directors, employees, agents, licensors, and suppliers from and against all losses, expenses, damages, and costs, including reasonable attorneys fees, resulting from any violation of these terms and conditions or any activity related to your account.\n'
-                  '\n'
-                  '7. Changes to these terms and conditions\n'
-                  ' 7.1 We reserve the right to modify these terms and conditions at any time.\n'
-                  ' 7.2 Your continued use of our application following the posting of changes to these terms and conditions will mean that you accept those changes.\n'
-                  '\n'
-                  '8. Governing Law\n'
-                  ' 8.1 These terms and conditions shall be governed by and construed in accordance with the laws of the country in which our application is hosted.\n'
-                  '\n'
-                  '9. Contact Information\n'
-                  ' 9.1 If you have any questions about these terms and conditions, please contact us at [insert contact information].\n',
-                  style: TextStyle(
-                    fontSize: 20,
-                    color: ColorManager.ktextblackk,
-                  ),
+            Directionality(
+              textDirection: TextDirection.ltr,
+              child: SingleChildScrollView(
+                child: Html(
+                  data: """
+        
+        
+       <!DOCTYPE html>
+    <html>
+    <head>
+      <meta charset='utf-8'>
+      <meta name='viewport' content='width=device-width'>
+      <title>Terms &amp; Conditions</title>
+      <style> body { font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; padding:1em; } </style>
+    </head>
+    <body>
+    <strong>Terms &amp; Conditions</strong> <p>
+                  By downloading or using the app, these terms will
+                  automatically apply to you – you should make sure therefore
+                  that you read them carefully before using the app. You’re not
+                  allowed to copy or modify the app, any part of the app, or
+                  our trademarks in any way. You’re not allowed to attempt to
+                  extract the source code of the app, and you also shouldn’t try
+                  to translate the app into other languages or make derivative
+                  versions. The app itself, and all the trademarks, copyright,
+                  database rights, and other intellectual property rights related
+                  to it, still belong to Oudz.
+                </p> <p>
+                  Oudz is committed to ensuring that the app is
+                  as useful and efficient as possible. For that reason, we
+                  reserve the right to make changes to the app or to charge for
+                  its services, at any time and for any reason. We will never
+                  charge you for the app or its services without making it very
+                  clear to you exactly what you’re paying for.
+                </p> <p>
+                  The OUDZ app stores and processes personal data that
+                  you have provided to us, to provide our
+                  Service. It’s your responsibility to keep your phone and
+                  access to the app secure. We therefore recommend that you do
+                  not jailbreak or root your phone, which is the process of
+                  removing software restrictions and limitations imposed by the
+                  official operating system of your device. It could make your
+                  phone vulnerable to malware/viruses/malicious programs,
+                  compromise your phone’s security features and it could mean
+                  that the OUDZ app won’t work properly or at all.
+                </p> <div><p>
+                    The app does use third-party services that declare their
+                    Terms and Conditions.
+                  </p> <p>
+                    Link to Terms and Conditions of third-party service
+                    providers used by the app
+                  </p> <ul><li><a href="https://policies.google.com/terms" target="_blank" rel="noopener noreferrer">Google Play Services</a></li><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----></ul></div> <p>
+                  You should be aware that there are certain things that
+                  Oudz will not take responsibility for. Certain
+                  functions of the app will require the app to have an active
+                  internet connection. The connection can be Wi-Fi or provided
+                  by your mobile network provider, but Oudz
+                  cannot take responsibility for the app not working at full
+                  functionality if you don’t have access to Wi-Fi, and you don’t
+                  have any of your data allowance left.
+                </p> <p></p> <p>
+                  If you’re using the app outside of an area with Wi-Fi, you
+                  should remember that the terms of the agreement with your
+                  mobile network provider will still apply. As a result, you may
+                  be charged by your mobile provider for the cost of data for
+                  the duration of the connection while accessing the app, or
+                  other third-party charges. In using the app, you’re accepting
+                  responsibility for any such charges, including roaming data
+                  charges if you use the app outside of your home territory
+                  (i.e. region or country) without turning off data roaming. If
+                  you are not the bill payer for the device on which you’re
+                  using the app, please be aware that we assume that you have
+                  received permission from the bill payer for using the app.
+                </p> <p>
+                  Along the same lines, Oudz cannot always take
+                  responsibility for the way you use the app i.e. You need to
+                  make sure that your device stays charged – if it runs out of
+                  battery and you can’t turn it on to avail the Service,
+                  Oudz cannot accept responsibility.
+                </p> <p>
+                  With respect to Oudz’s responsibility for your
+                  use of the app, when you’re using the app, it’s important to
+                  bear in mind that although we endeavor to ensure that it is
+                  updated and correct at all times, we do rely on third parties
+                  to provide information to us so that we can make it available
+                  to you. Oudz accepts no liability for any
+                  loss, direct or indirect, you experience as a result of
+                  relying wholly on this functionality of the app.
+                </p> <p>
+                  At some point, we may wish to update the app. The app is
+                  currently available on Android &amp; iOS – the requirements for the 
+                  both systems(and for any additional systems we
+                  decide to extend the availability of the app to) may change,
+                  and you’ll need to download the updates if you want to keep
+                  using the app. Oudz does not promise that it
+                  will always update the app so that it is relevant to you
+                  and/or works with the Android &amp; iOS version that you have
+                  installed on your device. However, you promise to always
+                  accept updates to the application when offered to you, We may
+                  also wish to stop providing the app, and may terminate use of
+                  it at any time without giving notice of termination to you.
+                  Unless we tell you otherwise, upon any termination, (a) the
+                  rights and licenses granted to you in these terms will end;
+                  (b) you must stop using the app, and (if needed) delete it
+                  from your device.
+                </p> <p><strong>Changes to This Terms and Conditions</strong></p> <p>
+                  We may update our Terms and Conditions
+                  from time to time. Thus, you are advised to review this page
+                  periodically for any changes. We will
+                  notify you of any changes by posting the new Terms and
+                  Conditions on this page.
+                </p> <p>
+                  These terms and conditions are effective as of 2023-05-22
+                </p> <p><strong>Contact Us</strong></p> <p>
+                  If you have any questions or suggestions about our
+                  Terms and Conditions, do not hesitate to contact us
+                  at oudze@oudze.ae.
+                </p> <p>This Terms and Conditions page was generated by <a href="https://app-privacy-policy-generator.nisrulz.com/" target="_blank" rel="noopener noreferrer">App Privacy Policy Generator</a></p>
+    </body>
+    </html>
+      
+          
+          
+          
+          
+          """,
                 ),
               ),
             ),

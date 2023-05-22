@@ -1,4 +1,4 @@
-import 'package:oudz_app/data_layer/models/carttest.dart';
+import 'package:oudz_app/data_layer/models/cart_model.dart';
 import 'package:oudz_app/presentation_layer/Infowidget/ui_components/info_widget.dart';
 import 'package:oudz_app/presentation_layer/components/appbar1.dart';
 import 'package:oudz_app/presentation_layer/components/custombutten.dart';
@@ -24,17 +24,17 @@ class CartScreen extends StatelessWidget {
         builder: (context, deviceInfo) {
           return Column(
             children: [
-              Expanded(
-                child: ListView.builder(
-                  itemCount: cartItem.length,
-                  itemBuilder: (BuildContext context, int index) {
-                    return CartCard(
-                      cart: cartItem[index],
-                      index: index,
-                    );
-                  },
-                ),
-              ),
+              // Expanded(
+              //   child: ListView.builder(
+              //     itemCount: cartItem.length,
+              //     itemBuilder: (BuildContext context, int index) {
+              //       return CartCard(
+              //         cart: cartItem[index],
+              //         index: index,
+              //       );
+              //     },
+              //   ),
+              // ),
               BottomSection(
                 width: deviceInfo.localWidth * 0.85,
               ),

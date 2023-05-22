@@ -1,7 +1,7 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:oudz_app/data_layer/models/favorit.dart';
+import 'package:oudz_app/data_layer/models/favorit_model.dart';
 import 'package:oudz_app/data_layer/models/product_model.dart';
 import 'package:oudz_app/main.dart';
 import 'package:oudz_app/presentation_layer/Infowidget/ui_components/info_widget.dart';
@@ -208,7 +208,9 @@ class ProductCard extends StatelessWidget {
                       onTap: () {
                         FavoritModel favoritModel = FavoritModel(
                           id: data!.id ?? 1,
-                          isfavorit: 1,
+                          des: data!.description ?? '',
+                          price: data!.price ?? 1,
+                          titleEn: data!.nameEn ?? '',
                           title: data!.name ?? '',
                           image: data!.image ?? '',
                         );
