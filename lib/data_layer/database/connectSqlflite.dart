@@ -38,7 +38,7 @@ class SqlDb {
     "title" TEXT(500),
     "titleEn" TEXT(500),
     "des" TEXT(500),
-    "price" TEXT(500),
+    "price" INTEGER(11),
     "image" TEXT(500)
 );
  ''');
@@ -48,10 +48,10 @@ class SqlDb {
     "id" INTEGER  NOT NULL PRIMARY KEY,
     "itemsName" TEXT(255),
     "itemsNameEn" TEXT(255),
-    "itemsPrice" TEXT(255),
+    "itemsPrice" INTEGER(11),
     "itemsImage" TEXT(255),
     "des" TEXT(500),
-    "quntity" TEXT(255)
+    "quntity" INTEGER(11)
 
 );
  ''');

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:oudz_app/data_layer/models/cart_model.dart';
 import 'package:oudz_app/main.dart';
+import 'package:oudz_app/presentation_layer/components/show_dialog.dart';
 
 import 'package:quickalert/quickalert.dart';
 
@@ -22,6 +23,7 @@ class CartController extends GetxController {
   List<CartItem> cartItem = [];
   void getData() async {
     var responsev = await sqlDb!.readData("SELECT * FROM cart");
+    print(responsev);
     for (var element in responsev) {
       cartItem.add(
         CartItem(
@@ -36,6 +38,7 @@ class CartController extends GetxController {
       );
     }
     islooding = false;
+    update();
   }
 
   icrasingCount(int index, double price) {
@@ -87,4 +90,9 @@ class CartController extends GetxController {
 
   //   update();
   // }
+  @override
+  void onInit() {
+    getData();
+    super.onInit();
+  }
 }

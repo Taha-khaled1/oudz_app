@@ -1,6 +1,7 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:oudz_app/data_layer/models/cart_model.dart';
 import 'package:oudz_app/data_layer/models/favorit_model.dart';
 import 'package:oudz_app/data_layer/models/product_model.dart';
 import 'package:oudz_app/main.dart';
@@ -189,6 +190,16 @@ class ProductCard extends StatelessWidget {
                 InkWell(
                   onTap: () async {
                     await sqlDb?.fordeletedatabase();
+                    //  CartItem cartItem = CartItem(
+                    //   des: data!.description ?? '',
+                    //   itemsName: data!.name ?? '',
+                    //   itemsNameEn: data!.nameEn ?? '',
+                    //   itemsImage: data!.image ?? '',
+                    //   itemsPrice: data!.price ?? 1,
+                    //   id: data!.id ?? 1,
+                    //   count: data!.quantity ?? 1,
+                    // );
+                    // controller.addcart(context, cartItem);
                   },
                   child: Image.asset(
                     'assets/images/shopping-cart.png',

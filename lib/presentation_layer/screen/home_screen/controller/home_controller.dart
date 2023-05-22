@@ -3,9 +3,11 @@ import 'package:get/get.dart';
 import 'package:oudz_app/application_layer/ShardFunction/handling.dart';
 import 'package:oudz_app/application_layer/ShardFunction/statusrequst.dart';
 import 'package:oudz_app/data_layer/function_resbon/resbons_all.dart';
+import 'package:oudz_app/data_layer/models/cart_model.dart';
 import 'package:oudz_app/data_layer/models/favorit_model.dart';
 import 'package:oudz_app/data_layer/models/product_model.dart';
 import 'package:oudz_app/main.dart';
+import 'package:oudz_app/presentation_layer/components/show_dialog.dart';
 import 'package:sqflite/sqflite.dart';
 
 class HomeController extends GetxController {
@@ -15,6 +17,45 @@ class HomeController extends GetxController {
     List<Map<String, dynamic>> result = await mydb!.rawQuery(sql);
 
     return result.isNotEmpty;
+  }
+
+  void addcart(BuildContext context, CartItem cartModel) async {
+    try {
+      var iscart = await sqlDb!.readData(
+        'SELECT * FROM cart WHERE id = ${cartModel.id}',
+      );
+
+      if (iscart.isNotEmpty) {
+        // Product is already a cart, so delete it
+        int deletedRows = await sqlDb!.deleteData(
+          'DELETE FROM cart WHERE id = ${cartModel.id}',
+        );
+
+        if (deletedRows > 0) {
+          showDilog(context, 'تم حذف المنتج من السله بنجاح');
+        }
+      } else {
+        // Product is not a cart, so add it
+        int respons = await sqlDb!.insert(
+          'cart',
+          {
+            'id': cartModel.id,
+            "itemsName": cartModel.itemsName,
+            "itemsNameEn": cartModel.itemsNameEn,
+            "itemsPrice": cartModel.itemsPrice,
+            "itemsImage": cartModel.itemsImage,
+            "des": cartModel.des,
+            "quntity": cartModel.count
+          },
+        );
+
+        if (respons > 0) {
+          showDilog(context, 'تم اضافة المنتج الي السله بنجاح');
+        }
+      }
+    } catch (e) {
+      print(e);
+    }
   }
 
   void addfavorite(BuildContext context, FavoritModel favoritModel) async {

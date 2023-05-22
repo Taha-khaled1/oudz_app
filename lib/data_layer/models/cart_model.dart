@@ -1,6 +1,6 @@
 class CartItem {
   final String itemsName, itemsNameEn, itemsImage, des;
-  final double itemsPrice;
+  final int itemsPrice;
   final int id;
   int count;
   CartItem({
