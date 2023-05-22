@@ -38,18 +38,17 @@ class SqlDb {
     "isfavorit" INTEGER NULL,
     "title" TEXT(500),
     "image" TEXT(500),
-    "descr" TEXT(5000),
-    "price" TEXT(500)
 );
  ''');
     batch.execute(
         '''
     CREATE TABLE cart (
     "id" INTEGER  NOT NULL PRIMARY KEY  AUTOINCREMENT,
-    "itemsId" INTEGER NULL,
     "itemsName" TEXT(255),
+    "itemsNameEn" TEXT(255),
     "itemsPrice" TEXT(255),
     "itemsImage" TEXT(255),
+    "Quntity" TEXT(255),
     "itemsDiscount" TEXT(255)
 );
  ''');

@@ -1,3 +1,5 @@
+import 'package:flutter/material.dart';
+
 class AppMargin {
   static const double m8 = 8.0;
   static const double m12 = 12.0;
@@ -5,6 +7,15 @@ class AppMargin {
   static const double m16 = 16.0;
   static const double m18 = 18.0;
   static const double m20 = 20.0;
+}
+
+class AppBoxsize {
+  static const SizedBox s10 = SizedBox(
+    height: 10,
+  );
+  static const SizedBox s15 = SizedBox(
+    height: 15,
+  );
 }
 
 class AppDeviceSize {
