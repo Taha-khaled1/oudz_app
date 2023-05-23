@@ -36,7 +36,7 @@ class HomeScreen extends StatelessWidget {
           },
         ),
         backgroundColor: ColorManager.background,
-        appBar: appbarscreen('الصفحه الرئيسيه'),
+        appBar: appbarscreen('Homepage'.tr),
         bottomNavigationBar: const Navb(),
         body: InfoWidget(
           builder: (context, deviceInfo) {
