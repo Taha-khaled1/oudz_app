@@ -6,6 +6,7 @@ import 'package:oudz_app/presentation_layer/handlingView/handlingview.dart';
 import 'package:oudz_app/presentation_layer/resources/color_manager.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:oudz_app/presentation_layer/resources/strings_manager.dart';
 import 'package:oudz_app/presentation_layer/screen/more_catogery/widget/catogery_card.dart';
 
 import 'more_catogery_controller/more_product_controller.dart';
@@ -20,7 +21,7 @@ class MoreCatogeryScreen extends StatelessWidget {
     return Scaffold(
       bottomNavigationBar: Navb(),
       backgroundColor: ColorManager.background,
-      appBar: appbarscreen('النتائج'),
+      appBar: appbarscreen(AppStrings.results.tr),
       body: GetBuilder<MoreCatogeryController>(
         builder: (controller) {
           return Padding(

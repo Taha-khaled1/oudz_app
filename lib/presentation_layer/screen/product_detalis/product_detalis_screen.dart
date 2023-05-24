@@ -6,8 +6,6 @@ import 'package:oudz_app/presentation_layer/resources/font_manager.dart';
 import 'package:oudz_app/presentation_layer/resources/styles_manager.dart';
 import 'package:oudz_app/presentation_layer/screen/cart_screen/widget/cart_card.dart';
 import 'package:oudz_app/presentation_layer/screen/home_screen/controller/home_controller.dart';
-import 'package:oudz_app/presentation_layer/screen/home_screen/widget/Titelmore.dart';
-import 'package:oudz_app/presentation_layer/screen/more_product/more_product.dart';
 import 'package:oudz_app/presentation_layer/screen/product_detalis/product_detalis_controller/product_detalis_controller.dart';
 import 'package:oudz_app/presentation_layer/screen/product_detalis/widget/ImageWithBackButton.dart';
 import 'package:flutter/material.dart';

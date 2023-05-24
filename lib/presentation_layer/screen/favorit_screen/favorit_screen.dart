@@ -3,6 +3,7 @@ import 'package:oudz_app/presentation_layer/components/appbar1.dart';
 import 'package:oudz_app/presentation_layer/components/navbar.dart';
 import 'package:oudz_app/presentation_layer/resources/color_manager.dart';
 import 'package:oudz_app/presentation_layer/resources/font_manager.dart';
+import 'package:oudz_app/presentation_layer/resources/strings_manager.dart';
 import 'package:oudz_app/presentation_layer/resources/styles_manager.dart';
 import 'package:flutter/material.dart';
 import 'package:oudz_app/presentation_layer/screen/favorit_screen/favorit_controller.dart';
@@ -15,7 +16,7 @@ class FavoritScreen extends StatelessWidget {
     return Scaffold(
       bottomNavigationBar: Navb(),
       backgroundColor: ColorManager.background,
-      appBar: appbarscreen('المفضله'),
+      appBar: appbarscreen(AppStrings.favorite.tr),
       body: GetBuilder<FavoritController>(
         init: FavoritController(),
         builder: (controller) {

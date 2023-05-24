@@ -1,5 +1,4 @@
 import 'package:get/get.dart';
-import 'package:oudz_app/presentation_layer/screen/auth_screen/login_screen/login_screen.dart';
 import 'package:oudz_app/presentation_layer/screen/home_screen/home_screen.dart';
 
 List<GetPage<dynamic>>? getPage = [

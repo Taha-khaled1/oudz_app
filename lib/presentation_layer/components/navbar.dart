@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:oudz_app/main.dart';
 import 'package:oudz_app/presentation_layer/resources/color_manager.dart';
+import 'package:oudz_app/presentation_layer/resources/strings_manager.dart';
 import 'package:oudz_app/presentation_layer/screen/account_screen/account_screen.dart';
 import 'package:oudz_app/presentation_layer/screen/cart_screen/cart_screen.dart';
 import 'package:oudz_app/presentation_layer/screen/favorit_screen/favorit_screen.dart';
@@ -21,14 +21,14 @@ class Navb extends StatelessWidget {
         children: [
           CustomIcon(
             svg: 'assets/icons/home (1).png',
-            title: 'الرئيسيه',
+            title: AppStrings.home.tr,
             onTap: () {
               Get.to(() => const HomeScreen());
             },
           ),
           CustomIcon(
             svg: 'assets/icons/category.png',
-            title: 'التصنيفات',
+            title: AppStrings.categories.tr,
             onTap: () {
               Get.to(() => const MoreCatogeryScreen());
             },
@@ -37,7 +37,7 @@ class Navb extends StatelessWidget {
             children: [
               CustomIcon(
                 svg: 'assets/icons/bag.png',
-                title: 'عربة التسوق',
+                title: AppStrings.cart.tr,
                 onTap: () {
                   Get.to(() => const CartScreen());
                 },
@@ -88,14 +88,14 @@ class Navb extends StatelessWidget {
           ),
           CustomIcon(
             svg: 'assets/icons/heart.png',
-            title: 'المفضله',
+            title: AppStrings.favorite.tr,
             onTap: () {
               Get.to(() => const FavoritScreen());
             },
           ),
           CustomIcon(
             svg: 'assets/icons/avatar.png',
-            title: 'الحساب',
+            title: AppStrings.account.tr,
             onTap: () {
               Get.to(() => const AccountScreen());
             },

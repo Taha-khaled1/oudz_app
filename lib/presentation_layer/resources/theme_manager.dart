@@ -9,19 +9,19 @@ ThemeData getApplicationTheme() {
     //   kTextblackColor: ColorManager.kkTextblack,
     fontFamily: 'Cairo',
     textTheme: TextTheme(
-      headline6: TextStyle(
+      titleLarge: TextStyle(
         color: Colors.black.withOpacity(0.8),
         fontWeight: FontWeight.bold,
       ),
-      headline3: TextStyle(
+      displaySmall: TextStyle(
         color: Colors.black.withOpacity(0.8),
         fontWeight: FontWeight.bold,
       ),
-      headline5: TextStyle(
+      headlineSmall: TextStyle(
         color: Colors.black.withOpacity(0.8),
         fontWeight: FontWeight.bold,
       ),
-      headline4: TextStyle(
+      headlineMedium: TextStyle(
         color: Colors.black.withOpacity(0.7),
         fontWeight: FontWeight.bold,
       ),

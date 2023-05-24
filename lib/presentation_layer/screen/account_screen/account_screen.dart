@@ -4,6 +4,7 @@ import 'package:oudz_app/presentation_layer/components/custombutten.dart';
 import 'package:oudz_app/presentation_layer/components/navbar.dart';
 import 'package:oudz_app/presentation_layer/resources/color_manager.dart';
 import 'package:oudz_app/presentation_layer/resources/font_manager.dart';
+import 'package:oudz_app/presentation_layer/resources/strings_manager.dart';
 import 'package:oudz_app/presentation_layer/resources/styles_manager.dart';
 import 'package:oudz_app/presentation_layer/screen/account_screen/widget/customListtile.dart';
 import 'package:flutter/material.dart';
@@ -24,7 +25,7 @@ class AccountScreen extends StatelessWidget {
     return Scaffold(
       bottomNavigationBar: const Navb(),
       backgroundColor: ColorManager.background,
-      appBar: appbarscreen('معلومات الحساب'),
+      appBar: appbarscreen(AppStrings.account_information.tr),
       body: InfoWidget(
         builder: (context, deviceInfo) {
           return Container(
@@ -35,7 +36,7 @@ class AccountScreen extends StatelessWidget {
                   padding:
                       const EdgeInsets.symmetric(horizontal: 12, vertical: 5),
                   child: Text(
-                    'الحساب',
+                    AppStrings.account.tr,
                     style: MangeStyles().getBoldStyle(
                       color: ColorManager.ktextblackk,
                       fontSize: FontSize.s18,
@@ -44,35 +45,35 @@ class AccountScreen extends StatelessWidget {
                 ),
                 CustomListtile(
                   widget: const Icon(Icons.person),
-                  titel: 'معلومات الحساب',
+                  titel: AppStrings.account_information.tr,
                   onTap: () {
                     Get.to(() => const EditProfileScreen());
                   },
                 ),
                 CustomListtile(
                   widget: const Icon(Icons.home),
-                  titel: 'اضافة عنوان',
+                  titel: AppStrings.add_address.tr,
                   onTap: () {
                     Get.to(() => const AddressScreen());
                   },
                 ),
                 CustomListtile(
                   widget: const Icon(Icons.privacy_tip_outlined),
-                  titel: 'سياسة الخصوصيه',
+                  titel: AppStrings.privacy_policy.tr,
                   onTap: () {
                     Get.to(() => const PrivacyPolicy());
                   },
                 ),
                 CustomListtile(
                   widget: const Icon(Icons.policy_outlined),
-                  titel: 'شروط والاحكام',
+                  titel: AppStrings.terms_and_conditions.tr,
                   onTap: () {
                     Get.to(TermsAndConditionsPage());
                   },
                 ),
                 CustomListtile(
                   widget: const Icon(Icons.share),
-                  titel: 'مشاركة التطبيق',
+                  titel: AppStrings.share_app.tr,
                   onTap: () {
                     Get.to(() => const ShareApp());
                   },
@@ -81,7 +82,7 @@ class AccountScreen extends StatelessWidget {
                   padding:
                       const EdgeInsets.symmetric(horizontal: 12, vertical: 5),
                   child: Text(
-                    'المساعده',
+                    AppStrings.help.tr,
                     style: MangeStyles().getBoldStyle(
                       color: ColorManager.ktextblackk,
                       fontSize: FontSize.s18,
@@ -90,7 +91,7 @@ class AccountScreen extends StatelessWidget {
                 ),
                 CustomListtile(
                   widget: const Icon(Icons.call),
-                  titel: 'تواصل معنا',
+                  titel: AppStrings.connect_with_us.tr,
                   onTap: () {
                     Get.to(
                       () => const SupportProblemScreen(),
@@ -99,7 +100,7 @@ class AccountScreen extends StatelessWidget {
                 ),
                 CustomListtile(
                   widget: const Icon(Icons.info_outline),
-                  titel: 'معلومات عنا',
+                  titel: AppStrings.about_us.tr,
                   onTap: () {
                     Get.to(() => const AboutPage());
                   },
@@ -114,7 +115,7 @@ class AccountScreen extends StatelessWidget {
                     width: deviceInfo.localWidth * 0.8,
                     haigh: 60,
                     color: ColorManager.kPrimary,
-                    text: 'تسجيل الخروج',
+                    text: AppStrings.sign_out.tr,
                     press: () {},
                   ),
                 ),

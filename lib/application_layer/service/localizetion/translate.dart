@@ -41,7 +41,7 @@ class MyTranslation extends Translations {
           "about_us": 'about us',
           "sign_out": 'sign out',
           "help": 'Help',
-          "add_cart": 'اضافة الي السله',
+          "add_cart": 'add to cart',
           "pri_content": pen,
           "term_content": ten,
         }
