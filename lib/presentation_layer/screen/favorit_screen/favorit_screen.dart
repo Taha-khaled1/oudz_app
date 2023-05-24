@@ -52,19 +52,24 @@ class FavoritScreen extends StatelessWidget {
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               const SizedBox(height: 16),
-                              Text(
-                                (sharedPreferences.getString('lang') == 'ar'
-                                        ? snapshot.data![index]['title']
-                                        : snapshot.data?[index]['titleEn']) ??
-                                    '',
-                                style: MangeStyles().getBoldStyle(
-                                  color: ColorManager.ktextblackk,
-                                  fontSize: FontSize.s18,
-                                ),
-                              ),
+                              sharedPreferences.getString('lang') == 'ar'
+                                  ? Text(
+                                      snapshot.data?[index]['title'] ?? "",
+                                      style: MangeStyles().getBoldStyle(
+                                        color: ColorManager.ktextblackk,
+                                        fontSize: FontSize.s18,
+                                      ),
+                                    )
+                                  : Text(
+                                      snapshot.data?[index]['titleEn'] ?? "",
+                                      style: MangeStyles().getBoldStyle(
+                                        color: ColorManager.ktextblackk,
+                                        fontSize: FontSize.s18,
+                                      ),
+                                    ),
                               const SizedBox(height: 1),
                               Text(
-                                AppStrings.examine_the_details.tr,
+                                'افحص التافصيل',
                                 style: MangeStyles().getBoldStyle(
                                   color: Colors.grey,
                                   fontSize: FontSize.s18,

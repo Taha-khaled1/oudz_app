@@ -32,6 +32,7 @@ class MyTranslation extends Translations {
           "confirmation": 'تاكيد',
           "pri_content": par,
           "term_content": tar,
+          "about_content": abar,
         },
         "en": {
           "Homepage": 'Home page',
@@ -62,9 +63,79 @@ class MyTranslation extends Translations {
           'online_payment': 'Online payment',
           "pri_content": pen,
           "term_content": ten,
+          "about_content": aben,
         }
       };
 }
+/////////////////////////////////////////////////////////////////
+
+final String abar = '''
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>حول المتجر - متجر العطور</title>
+  <style>
+    /* أضف أنماط CSS المخصصة هنا لتحسين المظهر */
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.5;
+    }
+    h1 {
+      color: #333;
+    }
+    p {
+      color: #666;
+    }
+  </style>
+</head>
+<body>
+  <h1>مرحبًا بك في متجر العطور لدينا!</h1>
+  <p>نحن متحمسون لتقديم لك مجموعة رائعة من العطور التي تأسر حواسك وتترك انطباعًا دائمًا. في <strong>اسم المتجر</strong> ، نتخصص في اختيار مجموعة متنوعة من العطور عالية الجودة من العلامات التجارية الرائدة ودور صناعة العطور النيش.</p>
+  <p>نحن ندرك أن اختيار العطر المثالي هو تجربة شخصية عميقة ، حيث تمتلك الروائح القدرة على إثارة العواطف وخلق ذكريات ثمينة. ولهذا السبب ، نسعى لتوفير مجموعة مختارة بعناية تلبي مجموعة متنوعة من الأذواق والتفضيلات. سواء كنت تبحث عن باقة زهور ، أو مزيج دافئ وجذاب ، أو رائحة منعشة ومنشطة ، أو عطر فريد وجريء ، فإن متجرنا هو وجهتك النهائية.</p>
+  <p>الجودة هي ذات أهمية قصوى بالنسبة لنا. نتعاون مباشرة مع مصنعي العطور الموثوقين وموزعيها لضمان أن كل زجاجة عطر تشتريها منا أصلية وتلبي أعلى المعايير. نحن نفخر بتقديم تجربة تسوق ممتعة لك ، مدعومة بالتزامنا برضا العملاء.</p>
+  <p>استكشف مجموعتنا الواسعة واستمتع بحواسك في عالم العطور الساحرة. نحن هنا لمساعدتك في العثور على العطر المثالي الذي يتناسب مع أسلوبك وشخصيتك. اكتشف فن صناعة العطور مع <strong>اسم المتجر</strong> واكتشف عطرك الفريد الخاص اليوم!</p>
+</body>
+</html>
+
+''';
+/////////////////////////////////////////////////////////////////
+
+final String aben = '''
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>About Us - Perfume Store</title>
+  <style>
+    /* Add your custom CSS styles here to enhance the appearance */
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.5;
+    }
+    h1 {
+      color: #333;
+    }
+    p {
+      color: #666;
+    }
+  </style>
+</head>
+<body>
+  <h1>Welcome to Our Perfume Store!</h1>
+  <p>We are passionate about bringing you an exquisite collection of fragrances that captivate your senses and leave a lasting impression. At <strong>Store Name</strong>, we specialize in curating a diverse range of high-quality perfumes from renowned brands and niche fragrance houses.</p>
+  
+  <p>We understand that choosing the perfect fragrance is a deeply personal experience, as scents have the power to evoke emotions and create cherished memories. That's why we strive to provide you with a carefully curated selection that caters to a variety of tastes and preferences. Whether you seek a floral bouquet, a warm and sensual blend, a fresh and invigorating scent, or a unique and daring fragrance, our store is your ultimate destination.</p>
+  
+  <p>Quality is of utmost importance to us. We collaborate directly with trusted perfume manufacturers and distributors to ensure that every bottle of perfume you purchase from us is authentic and of the highest standards. We take pride in offering you a delightful shopping experience, backed by our commitment to customer satisfaction.</p>
+  
+  <p>Explore our extensive collection and indulge your senses in the world of captivating fragrances. We are here to assist you in finding the perfect scent that resonates with your style and personality. Experience the artistry of perfumery with <strong>Store Name</strong> and discover your signature fragrance today!</p>
+</body>
+</html>
+
+
+
+''';
 /////////////////////////////////////////////////////////////////
 
 final String tar = '''<strong> سياسة الخصوصية </ strong> <p>

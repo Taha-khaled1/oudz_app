@@ -49,5 +49,6 @@ class AppStrings {
   static const String tax = 'tax';
   static const String price = 'price';
   static const String confirmation = 'confirmation';
+  static const String about_content = 'about_content';
   static const String online_payment = 'online_payment';
 }

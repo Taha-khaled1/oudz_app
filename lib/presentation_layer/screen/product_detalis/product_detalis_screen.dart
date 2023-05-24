@@ -1,8 +1,10 @@
 import 'package:oudz_app/data_layer/models/cart_model.dart';
+import 'package:oudz_app/main.dart';
 import 'package:oudz_app/presentation_layer/components/custombutten.dart';
 import 'package:oudz_app/presentation_layer/components/navbar.dart';
 import 'package:oudz_app/presentation_layer/resources/color_manager.dart';
 import 'package:oudz_app/presentation_layer/resources/font_manager.dart';
+import 'package:oudz_app/presentation_layer/resources/strings_manager.dart';
 import 'package:oudz_app/presentation_layer/resources/styles_manager.dart';
 import 'package:oudz_app/presentation_layer/screen/cart_screen/widget/cart_card.dart';
 import 'package:oudz_app/presentation_layer/screen/home_screen/controller/home_controller.dart';
@@ -39,7 +41,10 @@ class ProductDetalis extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Text(
-                        controllerpro.data.name ?? '',
+                        (sharedPreferences.getString('lang') == 'ar'
+                                ? controllerpro.data.name
+                                : controllerpro.data.nameEn) ??
+                            '',
                         style: MangeStyles().getBoldStyle(
                           color: ColorManager.ktextblackk,
                           fontSize: FontSize.s20,
@@ -107,7 +112,7 @@ class ProductDetalis extends StatelessWidget {
                             width: 185,
                             haigh: 60,
                             color: ColorManager.kPrimary,
-                            text: 'اضافة الي السله',
+                            text: AppStrings.cart.tr,
                             press: () {
                               CartItem cartItem = CartItem(
                                 des: controllerpro.data.description ?? '',

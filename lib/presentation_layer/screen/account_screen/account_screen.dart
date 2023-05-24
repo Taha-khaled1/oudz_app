@@ -90,15 +90,15 @@ class AccountScreen extends StatelessWidget {
                     ),
                   ),
                 ),
-                CustomListtile(
-                  widget: const Icon(Icons.call),
-                  titel: AppStrings.connect_with_us.tr,
-                  onTap: () {
-                    Get.to(
-                      () => const SupportProblemScreen(),
-                    );
-                  },
-                ),
+                // CustomListtile(
+                //   widget: const Icon(Icons.call),
+                //   titel: AppStrings.connect_with_us.tr,
+                //   onTap: () {
+                //     Get.to(
+                //       () => const SupportProblemScreen(),
+                //     );
+                //   },
+                // ),
                 CustomListtile(
                   widget: const Icon(Icons.info_outline),
                   titel: AppStrings.about_us.tr,
