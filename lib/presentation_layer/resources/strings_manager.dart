@@ -40,5 +40,6 @@ class AppStrings {
   static const String help = 'help';
   static const String add_cart = 'add_cart';
   static const String pri_content = 'pri_content';
+  static const String chang_lang = 'chang_lang';
   static const String term_content = 'term_content';
 }

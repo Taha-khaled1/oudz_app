@@ -11,11 +11,6 @@ class PrivacyPolicy extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        elevation: 0,
-        toolbarHeight: 1,
-        backgroundColor: ColorManager.background,
-      ),
       backgroundColor: ColorManager.background,
       body: SingleChildScrollView(
         child: Column(

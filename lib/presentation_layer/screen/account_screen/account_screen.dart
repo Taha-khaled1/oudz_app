@@ -1,3 +1,4 @@
+import 'package:oudz_app/main.dart';
 import 'package:oudz_app/presentation_layer/Infowidget/ui_components/info_widget.dart';
 import 'package:oudz_app/presentation_layer/components/appbar1.dart';
 import 'package:oudz_app/presentation_layer/components/custombutten.dart';
@@ -106,6 +107,10 @@ class AccountScreen extends StatelessWidget {
                   },
                 ),
                 const SizedBox(
+                  height: 15,
+                ),
+                CustomSwitch(),
+                const SizedBox(
                   height: 40,
                 ),
                 Padding(
@@ -123,6 +128,45 @@ class AccountScreen extends StatelessWidget {
             ),
           );
         },
+      ),
+    );
+  }
+}
+
+class CustomSwitch extends StatefulWidget {
+  @override
+  _CustomSwitchState createState() => _CustomSwitchState();
+}
+
+class _CustomSwitchState extends State<CustomSwitch> {
+  bool _value = sharedPreferences.getString('lang') == 'ar' ? false : true;
+
+  @override
+  Widget build(BuildContext context) {
+    return SwitchListTile.adaptive(
+      value: _value,
+      onChanged: (value) {
+        if (sharedPreferences.getString('lang') == 'ar') {
+          print('@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@');
+          sharedPreferences.setString("lang", 'en');
+          Get.updateLocale(Locale('en'));
+
+          print(sharedPreferences.getString('lang'));
+        } else {
+          print('########################################');
+          sharedPreferences.setString("lang", 'ar');
+          Get.updateLocale(Locale('ar'));
+        }
+        setState(() {
+          _value = !_value;
+        });
+      },
+      title: Text(
+        AppStrings.chang_lang.tr,
+        style: MangeStyles().getBoldStyle(
+          color: ColorManager.ktextblackk,
+          fontSize: FontSize.s18,
+        ),
       ),
     );
   }

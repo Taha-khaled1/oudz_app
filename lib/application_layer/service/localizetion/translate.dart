@@ -21,6 +21,7 @@ class MyTranslation extends Translations {
           "sign_out": 'تسجيل الخروج',
           "help": 'المساعده',
           "add_cart": 'اضافة الي السله',
+          "chang_lang": 'تغير اللغه',
           "pri_content": par,
           "term_content": tar,
         },
@@ -42,6 +43,7 @@ class MyTranslation extends Translations {
           "sign_out": 'sign out',
           "help": 'Help',
           "add_cart": 'add to cart',
+          "chang_lang": 'change language',
           "pri_content": pen,
           "term_content": ten,
         }
