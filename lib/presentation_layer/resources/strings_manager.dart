@@ -43,4 +43,11 @@ class AppStrings {
   static const String chang_lang = 'chang_lang';
   static const String examine_the_details = 'examine_the_details';
   static const String term_content = 'term_content';
+  static const String subtotal = 'subtotal';
+  static const String home_delivery = 'home_delivery';
+  static const String select_delivery_type = 'select_delivery_type';
+  static const String tax = 'tax';
+  static const String price = 'price';
+  static const String confirmation = 'confirmation';
+  static const String online_payment = 'online_payment';
 }

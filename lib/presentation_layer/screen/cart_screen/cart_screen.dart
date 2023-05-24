@@ -4,6 +4,7 @@ import 'package:oudz_app/presentation_layer/components/appbar1.dart';
 import 'package:oudz_app/presentation_layer/components/custombutten.dart';
 import 'package:oudz_app/presentation_layer/resources/color_manager.dart';
 import 'package:oudz_app/presentation_layer/resources/font_manager.dart';
+import 'package:oudz_app/presentation_layer/resources/strings_manager.dart';
 import 'package:oudz_app/presentation_layer/resources/styles_manager.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -19,7 +20,9 @@ class CartScreen extends StatelessWidget {
     final CartController controller = Get.put(CartController());
     return Scaffold(
       backgroundColor: ColorManager.background,
-      appBar: appbarscreen('عربة التسوق'),
+      appBar: appbarscreen(
+        AppStrings.cart.tr,
+      ),
       body: InfoWidget(
         builder: (context, deviceInfo) {
           return GetBuilder<CartController>(
@@ -46,7 +49,7 @@ class CartScreen extends StatelessWidget {
                     width: deviceInfo.localWidth * 0.8,
                     haigh: 60,
                     color: ColorManager.kPrimary,
-                    text: 'تاكيد',
+                    text: AppStrings.confirmation.tr,
                     press: () {},
                   ),
                 ],
@@ -79,14 +82,14 @@ class BottomSection extends StatelessWidget {
               return Column(
                 children: [
                   FinalPrice(
-                    title: 'المجموع الفرعي',
+                    title: AppStrings.subtotal.tr,
                     price: controller.totelPrice.toString(),
                   ),
                   const SizedBox(
                     height: 5,
                   ),
                   FinalPrice(
-                    title: 'ضريبة',
+                    title: AppStrings.tax.tr,
                     price: controller.totelTex.toString(),
                   ),
                   Column(
@@ -97,7 +100,7 @@ class BottomSection extends StatelessWidget {
                         height: 5,
                       ),
                       Text(
-                        'اختر نوع التسليم',
+                        AppStrings.select_delivery_type.tr,
                         style: MangeStyles().getBoldStyle(
                           color: ColorManager.kPrimary,
                           fontSize: FontSize.s20,
@@ -109,7 +112,7 @@ class BottomSection extends StatelessWidget {
                       CachCard(
                         controller: controller,
                         width: width,
-                        text: 'توصيل منزلي',
+                        text: AppStrings.home_delivery.tr,
                         valuebut: 'توصيل منزلي',
                       ),
                       const SizedBox(
@@ -118,7 +121,7 @@ class BottomSection extends StatelessWidget {
                       CachCard(
                         controller: controller,
                         width: width,
-                        text: 'الدفع الكتروني',
+                        text: AppStrings.online_payment.tr,
                         valuebut: 'الدفع الكتروني',
                       ),
                       const SizedBox(

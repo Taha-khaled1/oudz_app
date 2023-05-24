@@ -1,6 +1,8 @@
 import 'package:oudz_app/data_layer/models/cart_model.dart';
+import 'package:oudz_app/main.dart';
 import 'package:oudz_app/presentation_layer/resources/color_manager.dart';
 import 'package:oudz_app/presentation_layer/resources/font_manager.dart';
+import 'package:oudz_app/presentation_layer/resources/strings_manager.dart';
 import 'package:oudz_app/presentation_layer/resources/styles_manager.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -48,7 +50,10 @@ class CartCard extends StatelessWidget {
               SizedBox(
                 width: 200,
                 child: Text(
-                  cart!.itemsName, textAlign: TextAlign.right,
+                  (sharedPreferences.getString('lang') == 'ar'
+                      ? cart!.itemsName
+                      : cart!.itemsNameEn),
+                  textAlign: TextAlign.right,
                   style: const TextStyle(
                     color: Colors.black,
                     fontSize: 15,
@@ -59,7 +64,7 @@ class CartCard extends StatelessWidget {
               ),
               RichText(
                 text: TextSpan(
-                  text: 'السعر :',
+                  text: '${AppStrings.price.tr} :',
                   style: MangeStyles().getRegularStyle(
                     color: ColorManager.kTextlightgray,
                     fontSize: FontSize.s14,
