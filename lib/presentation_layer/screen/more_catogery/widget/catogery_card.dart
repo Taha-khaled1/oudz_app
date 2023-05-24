@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:oudz_app/data_layer/models/catogery_model.dart';
+import 'package:oudz_app/main.dart';
 import 'package:oudz_app/presentation_layer/resources/color_manager.dart';
 import 'package:oudz_app/presentation_layer/resources/font_manager.dart';
 import 'package:oudz_app/presentation_layer/resources/msnge_api.dart';
@@ -36,7 +37,10 @@ class CatogeryCard extends StatelessWidget {
             height: 5,
           ),
           Text(
-            catogery.name ?? '',
+            (sharedPreferences.getString('lang') == 'ar'
+                    ? catogery.name
+                    : catogery.nameEn) ??
+                '',
             style: MangeStyles().getBoldStyle(
               color: ColorManager.ktextblackk,
               fontSize: FontSize.s18,

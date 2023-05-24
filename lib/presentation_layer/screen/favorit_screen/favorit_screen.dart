@@ -1,4 +1,5 @@
 import 'package:get/get.dart';
+import 'package:oudz_app/main.dart';
 import 'package:oudz_app/presentation_layer/components/appbar1.dart';
 import 'package:oudz_app/presentation_layer/components/navbar.dart';
 import 'package:oudz_app/presentation_layer/resources/color_manager.dart';
@@ -52,7 +53,10 @@ class FavoritScreen extends StatelessWidget {
                             children: [
                               const SizedBox(height: 16),
                               Text(
-                                snapshot.data?[index]['title'] ?? '',
+                                (sharedPreferences.getString('lang') == 'ar'
+                                        ? snapshot.data![index]['title']
+                                        : snapshot.data?[index]['titleEn']) ??
+                                    '',
                                 style: MangeStyles().getBoldStyle(
                                   color: ColorManager.ktextblackk,
                                   fontSize: FontSize.s18,
@@ -60,7 +64,7 @@ class FavoritScreen extends StatelessWidget {
                               ),
                               const SizedBox(height: 1),
                               Text(
-                                'افحص التافصيل',
+                                AppStrings.examine_the_details.tr,
                                 style: MangeStyles().getBoldStyle(
                                   color: Colors.grey,
                                   fontSize: FontSize.s18,

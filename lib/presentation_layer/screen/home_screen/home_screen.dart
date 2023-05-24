@@ -170,7 +170,10 @@ class ProductCard extends StatelessWidget {
               ),
             ),
             Text(
-              data!.name ?? '',
+              (sharedPreferences.getString('lang') == 'ar'
+                      ? data!.name
+                      : data!.nameEn) ??
+                  '',
               style: MangeStyles().getBoldStyle(
                 color: ColorManager.ktextblackk,
                 fontSize: FontSize.s18,
